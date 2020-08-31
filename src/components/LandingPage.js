@@ -3,7 +3,10 @@ import FeatureList from './FeatureList';
 
 const LandingPage = () => (
   <div>
-    <FeatureList />
+    <div id="triangle-bottomleft">
+    </div>
+    <div id="under-triangle">
+    </div>
   </div>
 );
 
