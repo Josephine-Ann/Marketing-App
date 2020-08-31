@@ -1,9 +1,9 @@
 import React from 'react';
 
-const FeatureListItem = ({ description, amount, createdAt }) => (
+const FeatureListItem = ({ name, description, amount, createdAt }) => (
   <div>
-    <h3>{description}</h3>
-    <p>{amount} - {createdAt}</p>
+    <h3>{name}</h3>
+    <p>{amount} - {description}</p>
   </div>
 );
 

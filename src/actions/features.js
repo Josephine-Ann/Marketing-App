@@ -1,19 +1,19 @@
 import uuid from 'uuid';
 
-// ADD_EXPENSE
+// ADD_FEATURE
 export const addFeature = (
   {
     description = '',
-    note = '',
+    name = '',
     amount = 0,
     createdAt = 0
   } = {}
 ) => ({
   type: 'ADD_FEATURE',
-  expense: {
+  feature: {
     id: uuid(),
     description,
-    note,
+    name,
     amount,
     createdAt
   }
