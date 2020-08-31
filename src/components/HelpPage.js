@@ -2,7 +2,15 @@ import React from 'react';
 
 const HelpPage = () => (
   <div>
-    This is from my help component
+    <br />
+    <div id="wrapper">
+    </div>
+    <div id="wrapper">
+    </div>
+    <div id="wrapper">
+    </div>
+    <div id="wrapper">
+    </div>
   </div>
 );
 

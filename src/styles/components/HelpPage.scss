@@ -1,0 +1,22 @@
+.extra,
+#wrapper {
+  width: 75%;
+  margin: auto;
+  background-color: #ccc;
+}
+#wrapper {
+  height: 300px;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+.extra {
+  height: 40%;
+}
+@media (min-height: 768px) {
+  #wrapper{
+    height: 400px;
+  }
+}
+
+
+

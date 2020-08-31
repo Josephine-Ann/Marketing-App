@@ -5,6 +5,12 @@ html {
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
+  background-color: #2E313F;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
 }
 
 button {
@@ -18,3 +24,5 @@ button:disabled {
 .is-active {
   font-weight: bold;
 }
+
+

@@ -24,6 +24,42 @@ store.dispatch(addFeature({
 }))
 
 store.dispatch(addFeature({
+  name: 'Spinach',
+  description: 'Delicious',
+  amount: 300
+}))
+
+store.dispatch(addFeature({
+  name: 'Spinach',
+  description: 'Delicious',
+  amount: 300
+}))
+
+store.dispatch(addFeature({
+  name: 'Spinach',
+  description: 'Delicious',
+  amount: 300
+}))
+
+store.dispatch(addFeature({
+  name: 'Spinach',
+  description: 'Delicious',
+  amount: 300
+}))
+
+store.dispatch(addFeature({
+  name: 'Spinach',
+  description: 'Delicious',
+  amount: 300
+}))
+
+store.dispatch(addFeature({
+  name: 'Spinach',
+  description: 'Delicious',
+  amount: 300
+}))
+
+store.dispatch(addFeature({
   name: 'Tomatoes',
   description: 'Delicious',
   amount: 300
