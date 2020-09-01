@@ -1,12 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const FeaturePage = (props) => {
-  console.log(props);
   return (
     <div>
-      Looking at the feature with id of {props.match.params.id}
+      <h1>hi</h1>
+      <h1>hi</h1>
+      <h1>hi</h1>
+      <h1>hi</h1>
+      <h1>hi</h1>
     </div>
   );
 };
 
-export default FeaturePage;
+const mapStateToProps = (state, props) => {
+  return {
+    feature: state.features.find((feature) => feature.id === props.match.params.id)
+  }
+}
+
+export default connect(mapStateToProps)(FeaturePage);

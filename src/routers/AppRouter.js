@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import LandingPage from '../components/LandingPage';
 import FeaturesPage from '../components/FeaturesPage';
 import FeaturePage from '../components/FeaturePage';
+import AddFeaturePage from '../components/AddFeaturePage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
@@ -14,7 +15,8 @@ const AppRouter = () => (
       <Switch>
         <Route path="/" component={LandingPage} exact={true} />
         <Route path="/features" component={FeaturesPage} />
-        <Route path="/edit/:id" component={FeaturePage} />
+        <Route path="/feature/:id" component={FeaturePage} />
+        <Route path="/create" component={AddFeaturePage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>

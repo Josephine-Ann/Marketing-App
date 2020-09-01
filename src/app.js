@@ -11,66 +11,6 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addFeature({
-  name: 'Lettuce',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Spinach',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Tomatoes',
-  description: 'Delicious',
-  amount: 300
-}))
-
-store.dispatch(addFeature({
-  name: 'Potato',
-  description: 'Delicious',
-  amount: 300
-}))
-
 const state = store.getState();
 const visibleFeatures = getVisibleFeatures(state.features, state.filters);
 console.log(visibleFeatures);

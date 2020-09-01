@@ -22,6 +22,8 @@ export default (state = featuresReducerDefaultState, action) => {
           return feature;
         };
       });
+    case 'SET_FEATURES':
+      return action.features;
     default:
       return state;
   }

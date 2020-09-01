@@ -1,9 +1,19 @@
 import React from 'react';
 import FeatureList from './FeatureList';
+import FeatureListFilters from './FeatureListFilters';
 
 const FeaturesPage = () => (
   <div>
-    This is from my features component
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <p>Hi</p>
+    <FeatureListFilters />
     <FeatureList />
   </div>
 );

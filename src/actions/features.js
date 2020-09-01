@@ -1,23 +1,29 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase';
 
 // ADD_FEATURE
-export const addFeature = (
-  {
-    description = '',
-    name = '',
-    amount = 0,
-    createdAt = 0
-  } = {}
-) => ({
+export const addFeature = (feature) => ({
   type: 'ADD_FEATURE',
-  feature: {
-    id: uuid(),
-    description,
-    name,
-    amount,
-    createdAt
-  }
+  feature
 });
+
+export const startAddFeature = (featureData = {}) => {
+  return (dispatch) => {
+    const {
+      description = '',
+      name = '',
+      amount = 0,
+      createdAt = 0
+    } = featureData;
+    const feature = { description, name, amount, createdAt }
+    database.ref('features').push(feature).then((ref) => {
+      dispatch(addFeature({
+        id: ref.key,
+        ...feature
+      }));
+    })
+  }
+}
 
 // REMOVE_FEATURE
 export const removeFeature = ({ id } = {}) => ({
@@ -31,3 +37,26 @@ export const editFeature = (id, updates) => ({
   id,
   updates
 });
+
+export const setFeatures = (features) => ({
+  type: 'SET_FEATURES',
+  features
+})
+
+export const startSetFeatures = () => {
+  return (dispatch) => {
+    return database.ref('features').once('value').then((snapshot) => {
+      const features = [];
+
+      snapshot.forEach((childSnapshot) => {
+        features.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        });
+      });
+
+      dispatch(setFeatures(features));
+    });
+  };
+};
+

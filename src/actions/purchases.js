@@ -33,3 +33,4 @@ export const editPurchase = (id, updates) => ({
     id,
     updates
 });
+
