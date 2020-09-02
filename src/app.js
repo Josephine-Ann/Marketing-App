@@ -22,5 +22,6 @@ const jsx = (
 );
 
 store.dispatch(startSetFeatures()).then(() => {
+}).then(store.dispatch(startSetFeatures())).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
 })

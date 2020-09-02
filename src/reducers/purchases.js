@@ -22,6 +22,8 @@ export default (state = purchasesReducerDefaultState, action) => {
                     return purchase;
                 };
             });
+        case 'SET_PURCHASES':
+            return action.purchases;
         default:
             return state;
     }

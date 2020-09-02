@@ -4,6 +4,7 @@ import LandingPage from '../components/LandingPage';
 import FeaturesPage from '../components/FeaturesPage';
 import FeaturePage from '../components/FeaturePage';
 import AddFeaturePage from '../components/AddFeaturePage';
+import AddPurchasePage from '../components/AddPurchasePage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
@@ -17,6 +18,7 @@ const AppRouter = () => (
         <Route path="/features" component={FeaturesPage} />
         <Route path="/feature/:id" component={FeaturePage} />
         <Route path="/create" component={AddFeaturePage} />
+        <Route path="/purchase/:id" component={AddPurchasePage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>

@@ -31,6 +31,14 @@ export const removeFeature = ({ id } = {}) => ({
   id
 });
 
+export const startRemoveFeature = ({ id } = {}) => {
+  return (dispatch) => {
+    return database.ref(`features/${id}`).remove().then(() => {
+      dispatch(removeFeature({ id }));
+    });
+  };
+};
+
 // EDIT_FEATURE
 export const editFeature = (id, updates) => ({
   type: 'EDIT_FEATURE',
