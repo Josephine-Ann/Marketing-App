@@ -28,3 +28,4 @@ export default (state = featuresReducerDefaultState, action) => {
       return state;
   }
 };
+

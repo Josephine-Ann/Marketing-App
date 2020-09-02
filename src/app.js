@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { setTextFilter } from './actions/filters';
-import { addFeature } from './actions/features';
+import { startSetFeatures } from './actions/features';
 import getVisibleFeatures from './selectors/features';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -21,4 +21,6 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+store.dispatch(startSetFeatures()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app'));
+})

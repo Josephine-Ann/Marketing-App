@@ -9,6 +9,9 @@ const FeaturePage = (props) => {
       <h1>hi</h1>
       <h1>hi</h1>
       <h1>hi</h1>
+      <p>{props.feature.name}</p>
+      <p>{props.feature.description}</p>
+      <p>{props.feature.amount}</p>
     </div>
   );
 };
