@@ -59,7 +59,7 @@ export default class PurchaseForm extends React.Component {
                         onChange={this.onQuantityChange}
                     />
                     <textarea
-                        placeholder="Add a name for your purchase (optional)"
+                        placeholder="Add extra deliver info for your purchase (optional)"
                         value={this.state.name}
                         onChange={this.onNameChange}
                     >

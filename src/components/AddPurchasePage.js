@@ -4,6 +4,13 @@ import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
 
 export class AddPurchasePage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+        };
+    }
     onSubmit = (purchase) => {
         this.props.startAddPurchase(purchase);
         this.props.history.push('/');
@@ -16,6 +23,9 @@ export class AddPurchasePage extends React.Component {
                 <h1>Hi</h1>
                 <h1>Hi</h1>
                 <h1>Add purchase</h1>
+                <p>{this.props.feature.name}</p>
+                <p>{this.props.feature.description}</p>
+                <p>{this.props.feature.amount}</p>
                 <PurchaseForm
                     onSubmit={this.onSubmit}
                 />
