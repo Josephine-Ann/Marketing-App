@@ -4,12 +4,6 @@ import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
 
 export class AddPurchasePage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-    }
     onSubmit = (purchase) => {
         this.props.startAddPurchase({ address: purchase.address, extraInfo: purchase.extraInfo, quantity: purchase.quantity, featureId: this.props.match.params.id });
         this.props.history.push('/');

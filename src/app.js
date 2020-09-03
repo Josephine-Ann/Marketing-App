@@ -12,10 +12,6 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-const state = store.getState();
-const visibleFeatures = getVisibleFeatures(state.features, state.filters);
-console.log(visibleFeatures);
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
