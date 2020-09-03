@@ -4,13 +4,7 @@ import FeatureForm from './FeatureForm';
 import { startAddFeature } from '../actions/features';
 
 export class AddFeaturePage extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-
-        };
-    }
     onSubmit = (feature) => {
         this.props.startAddFeature(feature);
         this.props.history.push('/');
@@ -23,7 +17,6 @@ export class AddFeaturePage extends React.Component {
                 <h1>Hi</h1>
                 <h1>Hi</h1>
                 <h1>Add Feature</h1>
-                {this.props.feature.name}
                 <FeatureForm
                     onSubmit={this.onSubmit}
                 />

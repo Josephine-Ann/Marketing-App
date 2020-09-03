@@ -6,14 +6,14 @@ import { startAddPurchase } from '../actions/purchases';
 export class AddPurchasePage extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
 
         };
     }
     onSubmit = (purchase) => {
-        this.props.startAddPurchase(purchase);
+        this.props.startAddPurchase({ address: purchase.address, extraInfo: purchase.extraInfo, quantity: purchase.quantity, featureId: this.props.match.params.id });
         this.props.history.push('/');
+        console.log(this.props.purchases)
     };
     render() {
         return (
@@ -23,7 +23,7 @@ export class AddPurchasePage extends React.Component {
                 <h1>Hi</h1>
                 <h1>Hi</h1>
                 <h1>Add purchase</h1>
-                <p>{this.props.feature.name}</p>
+                <p>{this.props.feature.id}</p>
                 <p>{this.props.feature.description}</p>
                 <p>{this.props.feature.amount}</p>
                 <PurchaseForm
@@ -36,7 +36,8 @@ export class AddPurchasePage extends React.Component {
 
 const mapStateToProps = (state, props) => {
     return {
-        feature: state.features.find((feature) => feature.id === props.match.params.id)
+        feature: state.features.find((feature) => feature.id === props.match.params.id),
+        purchases: state.purchases
     }
 }
 

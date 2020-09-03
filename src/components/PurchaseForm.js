@@ -6,18 +6,19 @@ export default class PurchaseForm extends React.Component {
 
         this.state = {
             address: props.purchase ? props.purchase.address : '',
-            name: props.purchase ? props.purchase.name : '',
-            amount: props.purchase ? (props.purchase.amount / 100).toString() : '',
-            error: ''
+            extraInfo: props.purchase ? props.purchase.extraInfo : '',
+            quantity: props.purchase ? (props.purchase.quantity / 100).toString() : '',
+            error: '',
+            featureId: ''
         };
     }
     onAddressChange = (e) => {
         const address = e.target.value;
         this.setState(() => ({ address }));
     };
-    onNameChange = (e) => {
-        const name = e.target.value;
-        this.setState(() => ({ name }));
+    onInfoChange = (e) => {
+        const extraInfo = e.target.value;
+        this.setState(() => ({ extraInfo }));
     };
     onQuantityChange = (e) => {
         const quantity = e.target.value;
@@ -29,14 +30,14 @@ export default class PurchaseForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        if (!this.state.description || !this.state.amount) {
-            this.setState(() => ({ error: 'Please provide description and amount.' }));
+        if (!this.state.address || !this.state.quantity) {
+            this.setState(() => ({ error: 'Please provide address and quantity.' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
-                description: this.state.description,
-                amount: parseFloat(this.state.amount, 10) * 100,
-                name: this.state.name
+                address: this.state.address,
+                quantity: this.state.quantity,
+                extraInfo: this.state.extraInfo
             });
         }
     };
@@ -59,9 +60,9 @@ export default class PurchaseForm extends React.Component {
                         onChange={this.onQuantityChange}
                     />
                     <textarea
-                        placeholder="Add extra deliver info for your purchase (optional)"
-                        value={this.state.name}
-                        onChange={this.onNameChange}
+                        placeholder="Add extra delivery info for your purchase (optional)"
+                        value={this.state.extraInfo}
+                        onChange={this.onInfoChange}
                     >
                     </textarea>
                     <button>Add purchase</button>

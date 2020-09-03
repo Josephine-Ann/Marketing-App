@@ -1,3 +1,5 @@
+import uuid from 'uuid';
+import database from '../firebase/firebase';
 
 // ADD_PURCHASE
 export const addPurchase = (purchase) => ({
@@ -9,11 +11,12 @@ export const startAddPurchase = (purchaseData = {}) => {
     return (dispatch) => {
         const {
             address = '',
-            name = '',
+            extraInfo = '',
             amount = 0,
             quantity = 0,
+            featureId = ''
         } = purchaseData;
-        const purchase = { address, name, amount, quantity }
+        const purchase = { address, amount, quantity, extraInfo, featureId }
         database.ref('purchases').push(purchase).then((ref) => {
             dispatch(addPurchase({
                 id: ref.key,
@@ -22,6 +25,8 @@ export const startAddPurchase = (purchaseData = {}) => {
         })
     }
 }
+
+
 
 // REMOVE_purchase
 export const removePurchase = ({ id } = {}) => ({

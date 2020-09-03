@@ -5,6 +5,7 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { setTextFilter } from './actions/filters';
 import { startSetFeatures } from './actions/features';
+import { startSetPurchases } from './actions/purchases';
 import getVisibleFeatures from './selectors/features';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -22,6 +23,6 @@ const jsx = (
 );
 
 store.dispatch(startSetFeatures()).then(() => {
-}).then(store.dispatch(startSetFeatures())).then(() => {
+}).then(store.dispatch(startSetPurchases())).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
 })
