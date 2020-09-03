@@ -11,7 +11,7 @@ const CartPage = (props) => {
     <div>
       <h1>Order Summary</h1>
       {props.purchases.map((purchase) => {
-        return <div key={uuid()}><h1>You have bought a {purchase.name}, at the price of {purchase.amount}</h1></div>;
+        return <div key={uuid()}><h1>You have put a {purchase.name}, at the price of {purchase.amount} in your cart.</h1></div>;
       })}
       <p>The total cost is {props.purchasesPrice}</p>
     </div>
