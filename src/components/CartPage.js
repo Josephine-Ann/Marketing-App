@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import selectPurchases from '../selectors/purchases';
+import { startRemovePurchase } from '../actions/purchases';
+import selectPurchasesSummary from '../selectors/purchasesSummary';
 import uuid from 'uuid';
 
 
 const CartPage = (props) => {
   return (
     <div>
+      <h1>Order Summary</h1>
       {props.purchases.map((purchase) => {
-        return <div key={uuid()}><h1>{purchase}</h1><button>Remove</button></div>;
+        return <div key={uuid()}><h1>You have bought a {purchase.name}, at the price of {purchase.amount}</h1></div>;
       })}
     </div>
   )
@@ -16,7 +18,8 @@ const CartPage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    purchases: selectPurchases(state.features, state.purchases)
+    purchases: selectPurchasesSummary(state.features, state.purchases),
+    purchasesAll: state.purchases
   };
 };
 
