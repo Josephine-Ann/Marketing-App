@@ -4,8 +4,8 @@ export default (features, purchases) => {
     // go through each featureId and look for it in features
     let finalItems = []
     featureIds.forEach((x) => {
-        finalItems.push(features.find(feature => feature.id === x));
+        finalItems.push(features.find(feature => feature.id === x).amount);
     });
-    return finalItems
+    return finalItems.reduce(function (a, b) { return a + b; }, 0);
     // return feature name and price
 }
