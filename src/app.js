@@ -7,6 +7,7 @@ import { setTextFilter } from './actions/filters';
 import { startSetFeatures } from './actions/features';
 import { startSetPurchases } from './actions/purchases';
 import getVisibleFeatures from './selectors/features';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
