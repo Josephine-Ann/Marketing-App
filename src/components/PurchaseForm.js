@@ -1,4 +1,6 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 export default class PurchaseForm extends React.Component {
     constructor(props) {
@@ -44,29 +46,30 @@ export default class PurchaseForm extends React.Component {
     render() {
         return (
             <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Address"
-                        autoFocus
-                        value={this.state.address}
-                        onChange={this.onAddressChange}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Quantity"
-                        value={this.state.quantity}
-                        onChange={this.onQuantityChange}
-                    />
-                    <textarea
-                        placeholder="Add extra delivery info for your purchase (optional)"
-                        value={this.state.extraInfo}
-                        onChange={this.onInfoChange}
-                    >
-                    </textarea>
-                    <button>Add purchase</button>
-                </form>
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Group controlId="exampleForm.ControlInput1" onChange={this.onAddressChange} value={this.state.quantity}>
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control placeholder="33 New Street" />
+                    </Form.Group>
+                    <Form.Group value={this.state.quantity} onChange={this.onQuantityChange}
+                        controlId="exampleForm.ControlSelect1">
+                        <Form.Label>Quantity</Form.Label>
+                        <Form.Control as="select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlInput1" onChange={this.onInfoChange} value={this.state.extraInfo}>
+                        <Form.Label>Additional Information (Optional) </Form.Label>
+                        <Form.Control placeholder="Leave on porch" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                  </Button>
+                </Form>
             </div>
         )
     }

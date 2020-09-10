@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
 
+
 export class AddPurchasePage extends React.Component {
     onSubmit = (purchase) => {
         this.props.startAddPurchase({ address: purchase.address, extraInfo: purchase.extraInfo, quantity: purchase.quantity, featureId: this.props.match.params.id });
@@ -17,7 +18,6 @@ export class AddPurchasePage extends React.Component {
                 <h1>Hi</h1>
                 <h1>Hi</h1>
                 <h1>Add purchase</h1>
-                <p>{this.props.feature.id}</p>
                 <p>{this.props.feature.description}</p>
                 <p>{this.props.feature.amount}</p>
                 <PurchaseForm

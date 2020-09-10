@@ -16,7 +16,7 @@ export class CartPage extends React.Component {
       <div>
         <h1>Order Summary</h1>
         {this.props.purchases.map((purchase) => {
-          return <div key={uuid()}><h1>You have put a {purchase.name}, at the price of {purchase.amount} in your cart.</h1></div>;
+          return <div key={uuid()}><h1>You have put a {purchase.name}, at the price of {purchase.amount} in your cart. Your address is {purchase.address}</h1></div>;
         })}
         {this.props.purchasesFeatureIds.map((purchaseId) => {
           return <div key={uuid()}><NavLink to={"/purchaseedit/" + purchaseId}><button>Edit item</button></NavLink></div>;
