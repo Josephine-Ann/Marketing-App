@@ -12,14 +12,12 @@ export class AddPurchasePage extends React.Component {
     };
     render() {
         return (
-            <div>
-                <h1>Hi</h1>
-                <h1>Hi</h1>
-                <h1>Hi</h1>
-                <h1>Hi</h1>
-                <h1>Add purchase</h1>
-                <p>{this.props.feature.description}</p>
-                <p>{this.props.feature.amount}</p>
+            <div id="add-purchase-area">
+                <div class="apurchase-items">
+                    <h1>Add purchase</h1>
+                    <p>{this.props.feature.description}</p>
+                    <p>{this.props.feature.amount}</p>
+                </div>
                 <PurchaseForm
                     onSubmit={this.onSubmit}
                 />
