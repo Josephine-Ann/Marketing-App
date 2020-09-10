@@ -8,12 +8,12 @@ import AddPurchasePage from '../components/AddPurchasePage';
 import EditPurchasePage from '../components/EditPurchasePage';
 import CartPage from '../components/CartPage';
 import NotFoundPage from '../components/NotFoundPage';
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 
 const AppRouter = () => (
   <BrowserRouter>
     <div>
-      <Header />
+      <Navbar />
       <Switch>
         <Route path="/" component={LandingPage} exact={true} />
         <Route path="/features" component={FeaturesPage} />
