@@ -18,6 +18,9 @@ export class CartPage extends React.Component {
         {this.props.purchases.map((purchase) => {
           return <div key={uuid()}><h1>You have put a {purchase.name}, at the price of {purchase.amount} in your cart.</h1></div>;
         })}
+        {this.props.purchaseDetails.map((purchase) => {
+          return <div key={uuid()}><h1>Your address is {purchase.address}, you have ordered {purchase.quantity} of this product. {purchase.extraInfo ? "Extra info: " + purchase.extraInfo : ""}</h1></div>;
+        })}
         {this.props.purchasesFeatureIds.map((purchaseId) => {
           return <div key={uuid()}><NavLink to={"/purchaseedit/" + purchaseId}><button>Edit item</button></NavLink></div>;
         })}
@@ -35,7 +38,8 @@ const mapStateToProps = (state) => {
   return {
     purchases: selectPurchasesSummary(state.features, state.purchases),
     purchasesPrice: purchasesPrice(state.features, state.purchases),
-    purchasesFeatureIds: purchasesFeatureIds(state.features, state.purchases)
+    purchasesFeatureIds: purchasesFeatureIds(state.features, state.purchases),
+    purchaseDetails: state.purchases
   };
 };
 
