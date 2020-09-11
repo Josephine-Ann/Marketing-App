@@ -1,15 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Card'
+
 
 const FeaturePage = (props) => {
   return (
     <div>
-      <h1>hi</h1>
-      <h1>hi</h1>
-      <h1>hi</h1>
-      <h1>hi</h1>
-      <h1>hi</h1>
       <p>{props.feature.name}</p>
       <p>{props.feature.description}</p>
       <p>{props.feature.amount}</p>

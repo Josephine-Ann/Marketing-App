@@ -2,15 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { removeFeature } from '../actions/features';
 import { NavLink } from 'react-router-dom';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+
 
 const FeatureListItem = ({ name, description, amount, id, dispatch }) => (
   <div>
-    <h3>{name}</h3>
-    <p>{amount} - {description}</p>
-    <button onClick={() => {
-      dispatch(removeFeature({ id }));
-    }}>Remove</button>
-    <NavLink to={"/feature/" + id} activeClassName="is-active" exact={true}><button>Take a look</button></NavLink>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>
+          {amount} - {description}
+        </Card.Text>
+        <Button onClick={() => {
+          dispatch(removeFeature({ id }));
+        }} variant="primary">Remove</Button>
+        <NavLink to={"/feature/" + id} activeClassName="is-active" exact={true}><Button>Take a look</Button></NavLink>
+      </Card.Body>
+    </Card>
   </div>
 );
 
