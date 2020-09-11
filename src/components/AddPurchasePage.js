@@ -7,7 +7,7 @@ import { startAddPurchase } from '../actions/purchases';
 export class AddPurchasePage extends React.Component {
     onSubmit = (purchase) => {
         this.props.startAddPurchase({ address: purchase.address, extraInfo: purchase.extraInfo, quantity: purchase.quantity, featureId: this.props.match.params.id });
-        this.props.history.push('/');
+        this.props.history.push('/cart');
         console.log(this.props.purchases)
     };
     render() {
