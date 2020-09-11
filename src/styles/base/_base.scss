@@ -8,9 +8,14 @@ body {
   // background: yellow;
   // margin: 0;
   background: #66615b;
+  color: white;
   font-size: 14px;
   font-weight: 300;
   font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
+}
+
+p, h3, li, a, h1 {
+  color: white; 
 }
 
 #header-text {
