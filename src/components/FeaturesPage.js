@@ -4,7 +4,9 @@ import FeatureListFilters from './FeatureListFilters';
 
 const FeaturesPage = () => (
   <div>
-    <FeatureListFilters />
+    <div id="feature-list-filters">
+      <FeatureListFilters />
+    </div>
     <FeatureList />
   </div>
 );

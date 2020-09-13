@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 
 const FeatureListItem = ({ name, description, amount, id, dispatch }) => (
-  <div>
+  <div class="lit">
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
