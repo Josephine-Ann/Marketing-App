@@ -6,10 +6,10 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 
-const FeatureListItem = ({ name, description, amount, id, dispatch }) => (
-  <div class="lit">
+const FeatureListItem = ({ name, description, amount, id, url, dispatch }) => (
+  <div className="lit">
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={url} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>

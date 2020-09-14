@@ -8,6 +8,7 @@ export default class FeatureForm extends React.Component {
 
         this.state = {
             description: props.feature ? props.feature.description : '',
+            url: props.feature ? props.feature.url : '',
             name: props.feature ? props.feature.name : '',
             amount: props.feature ? (props.feature.amount / 100).toString() : '',
             createdAt: props.feature ? moment(props.feature.createdAt) : moment(),
@@ -22,6 +23,10 @@ export default class FeatureForm extends React.Component {
     onNameChange = (e) => {
         const name = e.target.value;
         this.setState(() => ({ name }));
+    };
+    onUrlChange = (e) => {
+        const url = e.target.value;
+        this.setState(() => ({ url }));
     };
     onAmountChange = (e) => {
         const amount = e.target.value;
@@ -49,7 +54,8 @@ export default class FeatureForm extends React.Component {
                 description: this.state.description,
                 amount: parseFloat(this.state.amount, 10) * 100,
                 createdAt: this.state.createdAt.valueOf(),
-                name: this.state.name
+                name: this.state.name,
+                url: this.state.url
             });
         }
     };
@@ -64,6 +70,13 @@ export default class FeatureForm extends React.Component {
                         autoFocus
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
+                    />
+                    <input
+                        type="url"
+                        placeholder="Please write url of image"
+                        autoFocus
+                        value={this.state.url}
+                        onChange={this.onUrlChange}
                     />
                     <input
                         type="text"

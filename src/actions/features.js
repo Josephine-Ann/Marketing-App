@@ -12,10 +12,11 @@ export const startAddFeature = (featureData = {}) => {
     const {
       description = '',
       name = '',
+      url = '',
       amount = 0,
       createdAt = 0
     } = featureData;
-    const feature = { description, name, amount, createdAt }
+    const feature = { description, name, url, amount, createdAt }
     database.ref('features').push(feature).then((ref) => {
       dispatch(addFeature({
         id: ref.key,
