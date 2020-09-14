@@ -13,7 +13,7 @@ export class AddPurchasePage extends React.Component {
     render() {
         return (
             <div id="add-purchase-area">
-                <div class="apurchase-items">
+                <div className="apurchase-items">
                     <h1>Add purchase</h1>
                     <p>{this.props.feature.description}</p>
                     <p>{this.props.feature.amount}</p>
