@@ -3,20 +3,33 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-
+import CurrencyFormat from "react-currency-format";
 
 const FeaturePage = (props) => {
   return (
-    <div>
-      <Card className="bg-dark text-white feature">
-        <Card.Img src={props.feature.url} alt="Card image" />
+    <div className="feature">
+      <Card className="feature_card">
+        <Card.Img className="feature_img" src={props.feature.url} alt="Card image" />
         <Card.ImgOverlay>
-          <Card.Title>{props.feature.name}</Card.Title>
+          <Card.Title className="feature__title">{props.feature.name}</Card.Title>
           <Card.Text>
-            <p>{props.feature.description}</p>
-            <p>{props.feature.amount}</p>
+            <p className="feature__p">{props.feature.description}</p>
+            <CurrencyFormat
+              renderText={(value) => (
+                <p className="feature__p">{value}</p>
+              )}
+              decimalScale={2}
+              value={props.feature.amount / 100}
+              displayType={"text"}
+              thousandSeparator={true}
+              suffix={" €"}
+            />
           </Card.Text>
-          <NavLink to={"/purchase/" + props.feature.id} activeClassName="is-active" exact={true}><Button>Buy me!</Button></NavLink>
+          <NavLink to={"/purchase/" + props.feature.id}
+            activeClassName="is-active"
+            exact={true}>
+            <Button>Buy me!</Button>
+          </NavLink>
         </Card.ImgOverlay>
       </Card>
     </div>

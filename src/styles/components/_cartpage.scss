@@ -1,7 +1,20 @@
-#cart-page-cards {
-    display: flex;
-}
+
 
 .text-centre {
     width: 40%;
+}
+
+#cart-page {
+    margin: 10% 20%;
+    #cart-page-cards {
+        margin-top: 5rem;
+        display: flex;
+    }
+}
+
+.cardPage_h2{
+    margin: 5% auto;
+    color: white;
+    font-weight: 600;
+    text-align: end;
 }

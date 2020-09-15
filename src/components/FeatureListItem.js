@@ -4,16 +4,26 @@ import { removeFeature } from '../actions/features';
 import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-
+import CurrencyFormat from "react-currency-format";
 
 const FeatureListItem = ({ name, description, amount, id, url, dispatch }) => (
   <div className="lit">
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={url} />
+      <Card.Img className="feature_card_img" variant="top" src={url} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title className="feature_card_title"> { name }</Card.Title>
+        <CurrencyFormat
+          renderText={(value) => (
+            <Card.Text>{value}</Card.Text>
+          )}
+          decimalScale={2}
+          value={amount / 100}
+          displayType={"text"}
+          thousandSeparator={true}
+          suffix={" €"}
+        />
         <Card.Text>
-          {amount} - {description}
+          {description}
         </Card.Text>
         <Button onClick={() => {
           dispatch(removeFeature({ id }));

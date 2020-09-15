@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { setTextFilter, sortByDate, sortByAmount } from '../actions/filters';
 
 const FeatureListFilters = (props) => (
-    <div>
-        <input type="text" value={props.filters.text} onChange={(e) => {
+    <div >
+        <input className="features_search" type="text" value={props.filters.text} onChange={(e) => {
             props.dispatch(setTextFilter(e.target.value));
         }} />
-        <select onChange={(e) => {
+        <select className="features_select" onChange={(e) => {
             if (e.target.value === "date") {
                 props.dispatch(sortByDate());
             } else {

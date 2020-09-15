@@ -3069,9 +3069,10 @@
       margin-left: auto;
       position: absolute; }
     .navbar.navbar-transparent {
-      background: transparent !important;
+      background: #66615b;
       padding-top: 25px;
-      box-shadow: none; }
+      box-shadow: none;
+      z-index: 10; }
       .navbar.navbar-transparent .navbar-brand {
         color: #FFFFFF; }
       .navbar.navbar-transparent .navbar-nav .nav-item .nav-link {

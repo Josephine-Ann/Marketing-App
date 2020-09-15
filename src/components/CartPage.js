@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
 import uuid from 'uuid';
+import CurrencyFormat from "react-currency-format";
 
 export class CartPage extends React.Component {
   // onClick = (purchaseId) => {
@@ -24,7 +25,16 @@ export class CartPage extends React.Component {
               <Card className="text-center">
                 <Card.Header>{purchase.name}</Card.Header>
                 <Card.Body>
-                  <Card.Title>{purchase.amount}</Card.Title>
+                  <CurrencyFormat
+                    renderText={(value) => (
+                      <Card.Title>{value}</Card.Title>
+                    )}
+                    decimalScale={2}
+                    value={purchase.amount / 100}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    suffix={" €"}
+                  />
                   <Card.Text>
                     {purchase.description}
                   </Card.Text>
@@ -47,7 +57,16 @@ export class CartPage extends React.Component {
               </Card></div>;
           })}
         </CardDeck>
-        <p>The total cost is {this.props.purchasesPrice}</p>
+        <CurrencyFormat
+          renderText={(value) => (
+            <h2 className="cardPage_h2"> The total cost is {value}</h2>
+          )}
+          decimalScale={2}
+          value={this.props.purchasesPrice / 100}
+          displayType={"text"}
+          thousandSeparator={true}
+          suffix={" €"}
+        />
       </div>
     )
   }
