@@ -12,7 +12,6 @@ export class AddFeaturePage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Add Feature</h1>
                 <FeatureForm
                     onSubmit={this.onSubmit}
                 />

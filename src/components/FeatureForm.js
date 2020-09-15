@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 export default class FeatureForm extends React.Component {
     constructor(props) {
@@ -61,29 +63,37 @@ export default class FeatureForm extends React.Component {
     };
     render() {
         return (
-            <div>
+            <div id="feature-form">
                 {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Description"
-                        autoFocus
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange}
-                    />
-                    <input
-                        type="url"
-                        placeholder="Please write url of image"
-                        autoFocus
-                        value={this.state.url}
-                        onChange={this.onUrlChange}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Amount"
-                        value={this.state.amount}
-                        onChange={this.onAmountChange}
-                    />
+                <h1>Add Feature</h1>
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control as="text" rows="3" onChange={this.onNameChange}
+                            value={this.state.name}
+                            autoFocus placeholder="Add a name for your feature (optional)"
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="text" rows="3" onChange={this.onDescriptionChange}
+                            value={this.state.description}
+                            autoFocus placeholder="Description" />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Please provide a URL for the image</Form.Label>
+                        <Form.Control as="url" rows="3" onChange={this.onUrlChange}
+                            value={this.state.url}
+                            placeholder="Please write url of image"
+                            autoFocus />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Please provide a price for the product</Form.Label>
+                        <Form.Control as="url" rows="3" onChange={this.onAmountChange}
+                            value={this.state.amount}
+                            placeholder="Amount"
+                            autoFocus />
+                    </Form.Group>
                     <SingleDatePicker
                         date={this.state.createdAt}
                         onDateChange={this.onDateChange}
@@ -92,14 +102,8 @@ export default class FeatureForm extends React.Component {
                         numberOfMonths={1}
                         isOutsideRange={() => false}
                     />
-                    <textarea
-                        placeholder="Add a name for your feature (optional)"
-                        value={this.state.name}
-                        onChange={this.onNameChange}
-                    >
-                    </textarea>
-                    <button>Add feature</button>
-                </form>
+                </Form>
+                {this.state.error && <p>{this.state.error}</p>}
             </div>
         )
     }
