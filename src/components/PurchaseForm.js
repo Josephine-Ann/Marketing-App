@@ -45,16 +45,16 @@ export default class PurchaseForm extends React.Component {
     };
     render() {
         return (
-            <div class="apurchase-items" id="form-purchase">
+            <div className="apurchase-items" id="form-purchase">
                 <Form onSubmit={this.onSubmit}>
                     <Form.Group controlId="exampleForm.ControlInput1" onChange={this.onAddressChange} value={this.state.quantity}>
                         <Form.Label>Address</Form.Label>
                         <Form.Control placeholder="33 New Street" />
                     </Form.Group>
-                    <Form.Group value={this.state.quantity} onChange={this.onQuantityChange}
+                    <Form.Group
                         controlId="exampleForm.ControlSelect1">
                         <Form.Label>Quantity</Form.Label>
-                        <Form.Control as="select">
+                        <Form.Control value={this.state.quantity} onChange={this.onQuantityChange} as="select">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
