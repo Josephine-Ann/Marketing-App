@@ -1,45 +1,56 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeFeature } from '../actions/features';
+import { startAddPurchase } from '../actions/purchases';
 import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
 
-const FeatureListItem = ({ name, description, amount, id, url, dispatch }) => (
-  <div className="lit">
-    <Card style={{ width: '18rem' }}>
-      <Card.Img className="feature_card_img" variant="top" src={url} />
-      <Card.Body>
-        <Card.Title className="feature_card_title"> { name }</Card.Title>
-        <CurrencyFormat
-          renderText={(value) => (
-            <Card.Text>{value}</Card.Text>
-          )}
-          decimalScale={2}
-          value={amount / 100}
-          displayType={"text"}
-          thousandSeparator={true}
-          suffix={" €"}
-        />
-        <Card.Text>
-          {description}
-        </Card.Text>
-        <Button onClick={() => {
-          dispatch(removeFeature({ id }));
-        }} variant="primary">Remove</Button>
-        <NavLink to={"/feature/" + id} activeClassName="is-active" exact={true}><Button>Take a look</Button></NavLink>
-      </Card.Body>
-    </Card>
-  </div>
-);
-
-
-const mapStateToProps = (state) => {
-  return {
-    features: state.features
+export class FeatureListItem extends React.Component {
+  onSubmit = () => {
+    this.props.startAddPurchase({ featureId: this.props.id, quantity: 1, address: '', extraInfo: '', amount: 0 })
+    console.log(this.props.purchases)
+  };
+  render() {
+    return (
+      <div className="lit">
+        <Card style={{ width: '18rem' }}>
+          <Card.Img className="feature_card_img" variant="top" src={this.props.url} />
+          <Card.Body>
+            <Card.Title className="feature_card_title"> {this.props.name}</Card.Title>
+            <CurrencyFormat
+              renderText={(value) => (
+                <Card.Text>{value}</Card.Text>
+              )}
+              decimalScale={2}
+              value={this.props.amount / 100}
+              displayType={"text"}
+              thousandSeparator={true}
+              suffix={" €"}
+            />
+            <Card.Text>
+              {this.props.description}
+            </Card.Text>
+            <Button onClick={this.onSubmit} variant="primary">Buy</Button>
+            <NavLink to={"/feature/" + this.props.id} activeClassName="is-active" exact={true}><Button>Take a look</Button></NavLink>
+          </Card.Body>
+        </Card>
+      </div>
+    );
   }
 }
 
-export default connect(mapStateToProps)(FeatureListItem);
+const mapStateToProps = (state) => {
+  return {
+    purchases: state.purchases
+  }
+}
+
+
+const mapDispatchToProps = (dispatch) => ({
+  startAddPurchase: (purchase) => dispatch(startAddPurchase(purchase))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FeatureListItem);
+
 
