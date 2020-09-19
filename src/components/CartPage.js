@@ -48,7 +48,7 @@ export class CartPage extends React.Component {
               <Card className="text-center">
                 <Card.Header>Your order</Card.Header>
                 <Card.Body>
-                  <Card.Title>You have ordered {purchase.amount} </Card.Title>
+                  <Card.Title>You have ordered {purchase.quantity} </Card.Title>
                   <Card.Text>
                     Your address is: {purchase.address}
                   </Card.Text>

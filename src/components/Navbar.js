@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import cartCounter from '../selectors/cartCounter';
 // nodejs library that concatenates strings
 import classnames from "classnames";
 
@@ -14,7 +16,7 @@ import {
   Container,
 } from "reactstrap";
 
-function ExamplesNavbar() {
+function ExamplesNavbar(props) {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -59,7 +61,7 @@ function ExamplesNavbar() {
             title="Coded by Creative Tim"
             tag={Link}
           >
-            Chajo
+            <p>{props.cartCounter}</p>
           </NavbarBrand>
           <button
             aria-expanded={navbarCollapse}
@@ -97,4 +99,12 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+const mapStateToProps = (state) => {
+  return {
+    cartCounter: cartCounter(state.purchases)
+  }
+}
+
+export default connect(mapStateToProps, undefined)(ExamplesNavbar);
+
+// export default ExamplesNavbar;
