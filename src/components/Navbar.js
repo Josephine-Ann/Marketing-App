@@ -54,15 +54,7 @@ function ExamplesNavbar(props) {
     >
       <Container>
         <div className="navbar-translate">
-          <NavbarBrand
-            data-placement="bottom"
-            to="/index"
-            target="_blank"
-            title="Coded by Creative Tim"
-            tag={Link}
-          >
-            <p>{props.cartCounter}</p>
-          </NavbarBrand>
+          <p>{props.cartCounter}</p>
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {

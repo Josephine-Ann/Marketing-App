@@ -1,8 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import lastAddress from '../selectors/lastAddress';
+import { connect } from 'react-redux';
 
-export default class PurchaseForm extends React.Component {
+
+class PurchaseForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,6 +20,7 @@ export default class PurchaseForm extends React.Component {
     onAddressChange = (e) => {
         const address = e.target.value;
         this.setState(() => ({ address }));
+        console.log(this.props.lastPurchaseAddress)
     };
     onInfoChange = (e) => {
         const extraInfo = e.target.value;
@@ -74,3 +78,12 @@ export default class PurchaseForm extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        lastPurchaseAddress: lastAddress(state.purchases)
+    }
+}
+
+
+export default connect(mapStateToProps, undefined)(PurchaseForm);

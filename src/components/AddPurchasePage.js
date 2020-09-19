@@ -29,7 +29,7 @@ export class AddPurchasePage extends React.Component {
 const mapStateToProps = (state, props) => {
     return {
         feature: state.features.find((feature) => feature.id === props.match.params.id),
-        purchases: state.purchases
+        purchases: state.purchases,
     }
 }
 
