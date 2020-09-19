@@ -5,10 +5,11 @@ import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
+import lastAddress from '../selectors/lastAddress';
 
 export class FeatureListItem extends React.Component {
   onSubmit = () => {
-    this.props.startAddPurchase({ featureId: this.props.id, quantity: 1, address: '', extraInfo: '', amount: 0 })
+    this.props.startAddPurchase({ featureId: this.props.id, quantity: 1, address: this.props.lastPurchaseAddress.address, extraInfo: '', amount: 0 })
     console.log(this.props.purchases)
   };
   render() {
@@ -42,7 +43,8 @@ export class FeatureListItem extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    purchases: state.purchases
+    purchases: state.purchases,
+    lastPurchaseAddress: lastAddress(state.purchases)
   }
 }
 
