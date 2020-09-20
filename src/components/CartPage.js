@@ -10,52 +10,31 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
 import uuid from 'uuid';
 import CurrencyFormat from "react-currency-format";
+import CartPageItem from './CartPageItem';
 
 export class CartPage extends React.Component {
-  // onClick = (purchaseId) => {
-  //   this.props.removePurchase(purchaseId);
-  // }
+  onClick = (purchaseId) => {
+    console.log(purchaseId)
+    this.props.startRemovePurchase(purchaseId);
+  }
   render() {
     return (
       <div id="cart-page">
         <h1>Order Summary</h1>
         <CardDeck id="cart-page-cards">
-          {this.props.purchases.map((purchase) => {
-            return <div key={uuid()}>
-              <Card className="text-center">
-                <Card.Header>{purchase.name}</Card.Header>
-                <Card.Body>
-                  <CurrencyFormat
-                    renderText={(value) => (
-                      <Card.Title>{value}</Card.Title>
-                    )}
-                    decimalScale={2}
-                    value={purchase.amount / 100}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    suffix={" €"}
-                  />
-                  <Card.Text>
-                    {purchase.description}
-                  </Card.Text>
-                  <NavLink to={"/purchaseedit/" + purchase.featureId}><Button variant="primary">Edit</Button></NavLink>
-                </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
-              </Card></div>;
-          })}
-          {this.props.purchaseDetails.map((purchase) => {
-            return <div key={uuid()}>
-              <Card className="text-center">
-                <Card.Header>Your order</Card.Header>
-                <Card.Body>
-                  <Card.Title>You have ordered {purchase.quantity} </Card.Title>
-                  <Card.Text>
-                    Your address is: {purchase.address}
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer className="text-muted">{purchase.extraInfo ? "Extra info: " + purchase.extraInfo : ""}</Card.Footer>
-              </Card></div>;
-          })}
+          return <div key={uuid()}>
+            {
+              this.props.purchases.length === 0 ? (
+                <div>
+                  <p>No purchases</p>
+                </div>
+              ) : (
+                  this.props.purchases.map((purchases) => {
+                    return <CartPageItem key={uuid()} {...purchases} onClick={this.onClick} />;
+                  })
+                )
+            }
+          </div>;
         </CardDeck>
         <CurrencyFormat
           renderText={(value) => (
@@ -73,7 +52,7 @@ export class CartPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  removePurchase: (purchase) => dispatch(startRemovePurchase(purchase))
+  startRemovePurchase: (purchase) => dispatch(startRemovePurchase(purchase))
 });
 
 const mapStateToProps = (state) => {
