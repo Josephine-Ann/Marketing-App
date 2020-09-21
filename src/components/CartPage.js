@@ -5,22 +5,30 @@ import selectPurchasesSummary from '../selectors/purchasesSummary';
 import purchasesPrice from '../selectors/purchasesPrice';
 import purchasesFeatureIds from '../selectors/purchasesFeatureIds';
 import { NavLink } from 'react-router-dom';
+<<<<<<< HEAD
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+=======
+>>>>>>> a19e01bc6bbda48d5d10e6929b4d2a2d6b19a6d5
 import CardDeck from 'react-bootstrap/CardDeck'
 import uuid from 'uuid';
 import CurrencyFormat from "react-currency-format";
 import CartPageItem from './CartPageItem';
+import Button from 'react-bootstrap/Button'
 
 export class CartPage extends React.Component {
+
   onClick = (purchaseId) => {
     console.log(purchaseId)
     this.props.startRemovePurchase(purchaseId);
   }
+
+
   render() {
     return (
       <div id="cart-page">
-        <h1>Order Summary</h1>
+        <h1>Your shopping Basket</h1>
+        <hr />
         <CardDeck id="cart-page-cards">
           return <div key={uuid()}>
             {
@@ -46,8 +54,13 @@ export class CartPage extends React.Component {
           thousandSeparator={true}
           suffix={" €"}
         />
+<<<<<<< HEAD
         <NavLink to={"/purchase"}><Button>Proceed to checkout</Button></NavLink>
+=======
+        <Button className="cart-page-btn" variant="primary">Proceed to Checkout</Button>
+>>>>>>> a19e01bc6bbda48d5d10e6929b4d2a2d6b19a6d5
       </div>
+
     )
   }
 }

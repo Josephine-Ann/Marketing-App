@@ -5,7 +5,7 @@
 }
 
 #cart-page {
-    margin: 10% 20%;
+    margin: 10% 30%;
     #cart-page-cards {
         margin-top: 5rem;
         display: flex;
@@ -17,4 +17,44 @@
     color: white;
     font-weight: 600;
     text-align: end;
+}
+
+
+.cart_list {
+    width: 100%;
+    max-width: 360ch;
+    // backgroundCobalor: theme.palette.background.paper
+    .inline {
+    display: inline;
+    }
+}
+
+.MuiTypography-body2 {
+    font-size: 18px !important;
+}
+
+.MuiTypography-displayBlock {
+    display: flex !important;
+    flex-direction: inherit;
+}
+
+.cart-page-price {
+    margin: 2px 15px;
+}
+
+.cart-page-item-btn {
+    margin: 20px 30px;
+}
+
+.MuiAvatar-root {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.MuiListItemText-multiline {
+    margin: 0px 25px;
+}
+
+.nav-cart-link {
+    margin: 10px 0px !important;
 }

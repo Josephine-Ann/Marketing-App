@@ -16,6 +16,10 @@ import {
   Container,
 } from "reactstrap";
 
+import Badge from '@material-ui/core/Badge';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+
+
 function ExamplesNavbar(props) {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
@@ -54,7 +58,7 @@ function ExamplesNavbar(props) {
     >
       <Container>
         <div className="navbar-translate">
-          <p>{props.cartCounter}</p>
+          <h3><strong>JOCHA</strong></h3>
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
@@ -82,7 +86,11 @@ function ExamplesNavbar(props) {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/cart" tag={Link}>Cart</NavLink>
+              <NavLink className="nav-cart-link" to="/cart" tag={Link}>
+                <Badge badgeContent={props.cartCounter} color="primary">
+                  <ShoppingBasketIcon />
+                </Badge>
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>

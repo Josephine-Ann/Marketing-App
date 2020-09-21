@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
 import { startEditPurchase } from '../actions/purchases';
+import selectPurchasesSummary from '../selectors/purchasesSummary';
+import FeatureListItemCheckout from './FeatureListItemCheckout';
+import CardDeck from 'react-bootstrap/CardDeck'
+import uuid from 'uuid';
 
 
 export class AddPurchasePage extends React.Component {
@@ -18,6 +22,11 @@ export class AddPurchasePage extends React.Component {
                 <PurchaseForm
                     onSubmit={this.onSubmit}
                 />
+                <CardDeck>
+                    {this.props.features.map((feature) => {
+                        return <FeatureListItemCheckout key={uuid()} {...feature} />;
+                    })}
+                </CardDeck>
             </div>
         );
     }
@@ -26,6 +35,7 @@ export class AddPurchasePage extends React.Component {
 const mapStateToProps = (state, props) => {
     return {
         feature: state.features.find((feature) => feature.id === props.match.params.id),
+        features: selectPurchasesSummary(state.features, state.purchases),
         purchases: state.purchases,
     }
 }
