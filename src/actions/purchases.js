@@ -49,6 +49,15 @@ export const editPurchase = (id, updates) => ({
     updates
 });
 
+export const startEditPurchase = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`purchases/${id}`).update(updates).then(() => {
+            dispatch(editPurchase(id, updates));
+        });
+    };
+};
+
+
 export const setPurchases = (purchases) => ({
     type: 'SET_PURCHASES',
     purchases

@@ -12,7 +12,7 @@ class PurchaseForm extends React.Component {
         this.state = {
             address: props.purchase ? props.purchase.address : '',
             extraInfo: props.purchase ? props.purchase.extraInfo : '',
-            quantity: props.purchase ? (props.purchase.quantity / 100).toString() : '',
+            quantity: props.purchase ? (props.purchase.quantity / 100).toString() : 1,
             error: '',
             featureId: ''
         };
@@ -20,29 +20,20 @@ class PurchaseForm extends React.Component {
     onAddressChange = (e) => {
         const address = e.target.value;
         this.setState(() => ({ address }));
-        console.log(this.props.lastPurchaseAddress)
     };
     onInfoChange = (e) => {
         const extraInfo = e.target.value;
         this.setState(() => ({ extraInfo }));
     };
-    onQuantityChange = (e) => {
-        const quantity = e.target.value;
-
-        if (!quantity || quantity.match(/^\d+$/)) {
-            this.setState(() => ({ quantity }));
-        }
-    };
     onSubmit = (e) => {
         e.preventDefault();
 
-        if (!this.state.address || !this.state.quantity) {
-            this.setState(() => ({ error: 'Please provide address and quantity.' }));
+        if (!this.state.address) {
+            this.setState(() => ({ error: 'Please provide address.' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
                 address: this.state.address,
-                quantity: this.state.quantity,
                 extraInfo: this.state.extraInfo
             });
         }
@@ -51,20 +42,9 @@ class PurchaseForm extends React.Component {
         return (
             <div className="apurchase-items" id="form-purchase">
                 <Form onSubmit={this.onSubmit}>
-                    <Form.Group controlId="exampleForm.ControlInput1" onChange={this.onAddressChange} value={this.state.quantity}>
+                    <Form.Group controlId="exampleForm.ControlInput1" onChange={this.onAddressChange} value={this.state.address}>
                         <Form.Label>Address</Form.Label>
                         <Form.Control placeholder="33 New Street" />
-                    </Form.Group>
-                    <Form.Group
-                        controlId="exampleForm.ControlSelect1">
-                        <Form.Label>Quantity</Form.Label>
-                        <Form.Control value={this.state.quantity} onChange={this.onQuantityChange} as="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlInput1" onChange={this.onInfoChange} value={this.state.extraInfo}>
                         <Form.Label>Additional Information (Optional) </Form.Label>

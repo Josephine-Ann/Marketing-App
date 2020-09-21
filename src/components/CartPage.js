@@ -6,8 +6,8 @@ import purchasesPrice from '../selectors/purchasesPrice';
 import purchasesFeatureIds from '../selectors/purchasesFeatureIds';
 import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
+import CardDeck from 'react-bootstrap/CardDeck'
 import uuid from 'uuid';
 import CurrencyFormat from "react-currency-format";
 import CartPageItem from './CartPageItem';
@@ -46,6 +46,7 @@ export class CartPage extends React.Component {
           thousandSeparator={true}
           suffix={" €"}
         />
+        <NavLink to={"/purchase"}><Button>Proceed to checkout</Button></NavLink>
       </div>
     )
   }

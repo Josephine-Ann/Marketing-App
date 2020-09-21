@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import LandingPage from '../components/LandingPage';
@@ -19,7 +20,7 @@ const AppRouter = () => (
         <Route path="/features" component={FeaturesPage} />
         <Route path="/feature/:id" component={FeaturePage} />
         <Route path="/create" component={AddFeaturePage} />
-        <Route path="/purchase/:id" component={AddPurchasePage} />
+        <Route path="/purchase" component={AddPurchasePage} />
         <Route path="/purchaseedit/:id" component={EditPurchasePage} />
         <Route path="/cart" component={CartPage} />
         <Route component={NotFoundPage} />
