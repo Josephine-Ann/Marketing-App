@@ -8,6 +8,16 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
 
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Divider from "@material-ui/core/Divider";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+
+
 export class CartPageItem extends React.Component {
     constructor(props) {
         super(props);
@@ -25,26 +35,41 @@ export class CartPageItem extends React.Component {
     }
     render() {
         return (
-            <Card className="text-center">
-                <Card.Header>{this.state.name}</Card.Header>
-                <Card.Body>
-                    <CurrencyFormat
-                        renderText={(value) => (
-                            <Card.Title>{value}</Card.Title>
-                        )}
-                        decimalScale={2}
-                        value={this.state.amount / 100}
-                        displayType={"text"}
-                        thousandSeparator={true}
-                        suffix={" €"}
+
+            <List className="card_list">
+                <ListItem alignItems="flex-start">
+                    <ListItemAvatar>
+                        <Avatar alt="Remy Sharp" src={this.props.url} />
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary={this.state.name}
+                        secondary={
+                            <React.Fragment>
+                                <Typography
+                                    component="span"
+                                    variant="body2"
+                                    className="inline"
+                                    color="textPrimary"
+                                >{this.state.description} -
+                                </Typography>
+                                <CurrencyFormat
+                                    renderText={(value) => (
+                                        <Card.Text className="cart-page-price">{value}</Card.Text>
+                                    )}
+                                    decimalScale={2}
+                                    value={this.state.amount / 100}
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    suffix={" €"}
+                                />
+                            </React.Fragment>
+                        }
                     />
-                    <Card.Text>
-                        {this.state.description}
-                    </Card.Text>
-                    <Button onClick={this.onClick} variant="primary">Delete</Button>
-                </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
-            </Card>
+                    <Button className="cart-page-item-btn" onClick={this.onClick} variant="primary">Delete</Button>
+                </ListItem>
+                <Divider variant="inset" component="li" />
+
+            </List>
         )
     }
 }
