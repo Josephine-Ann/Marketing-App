@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { setTextFilter } from './actions/filters';
 import { startSetFeatures } from './actions/features';
 import { startSetPurchases } from './actions/purchases';
+import { login, logout } from './actions/auth';
 import getVisibleFeatures from './selectors/features';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css/normalize.css';
@@ -31,6 +32,7 @@ store.dispatch(startSetFeatures())
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    store.dispatch(login(user.uid));
     store.dispatch(startSetPurchases()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
@@ -38,6 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
       }
     })
   } else {
+    store.dispatch(logout());
     renderApp();
     history.push('/')
   }

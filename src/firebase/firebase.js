@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 
+
 const config = {
     apiKey: "AIzaSyCEhv2p2xUcbiaq8V6Q4so06TYyDJdo14M",
     authDomain: "marketing-app-97cfc.firebaseapp.com",

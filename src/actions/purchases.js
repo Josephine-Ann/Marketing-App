@@ -8,7 +8,8 @@ export const addPurchase = (purchase) => ({
 });
 
 export const startAddPurchase = (purchaseData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         const {
             address = '',
             extraInfo = '',
@@ -17,7 +18,7 @@ export const startAddPurchase = (purchaseData = {}) => {
             featureId = ''
         } = purchaseData;
         const purchase = { address, amount, quantity, extraInfo, featureId }
-        database.ref('purchases').push(purchase).then((ref) => {
+        database.ref(`users/${uid}/purchases`).push(purchase).then((ref) => {
             dispatch(addPurchase({
                 id: ref.key,
                 ...purchase
@@ -35,8 +36,9 @@ export const removePurchase = ({ id } = {}) => ({
 });
 
 export const startRemovePurchase = ({ id } = {}) => {
-    return (dispatch) => {
-        return database.ref(`purchases/${id}`).remove().then(() => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/purchases`).remove().then(() => {
             dispatch(removePurchase({ id }));
         });
     };
@@ -50,8 +52,9 @@ export const editPurchase = (id, updates) => ({
 });
 
 export const startEditPurchase = (id, updates) => {
-    return (dispatch) => {
-        return database.ref(`purchases/${id}`).update(updates).then(() => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/purchases`).update(updates).then(() => {
             dispatch(editPurchase(id, updates));
         });
     };
@@ -64,8 +67,9 @@ export const setPurchases = (purchases) => ({
 })
 
 export const startSetPurchases = () => {
-    return (dispatch) => {
-        return database.ref('purchases').once('value').then((snapshot) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/purchases`).once('value').then((snapshot) => {
             const purchases = [];
 
             snapshot.forEach((childSnapshot) => {

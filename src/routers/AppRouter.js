@@ -12,6 +12,8 @@ import EditPurchasePage from '../components/EditPurchasePage';
 import CartPage from '../components/CartPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Navbar from '../components/Navbar';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
@@ -20,14 +22,14 @@ const AppRouter = () => (
     <div>
       <Navbar />
       <Switch>
-        <Route path="/" component={LoginPage} exact={true} />
-        <Route path="/dashboard" component={LandingPage} exact={true} />
+        <PublicRoute path="/" component={LoginPage} exact={true} />
+        <PrivateRoute path="/dashboard" component={LandingPage} exact={true} />
         <Route path="/features" component={FeaturesPage} />
         <Route path="/feature/:id" component={FeaturePage} />
-        <Route path="/create" component={AddFeaturePage} />
-        <Route path="/purchase" component={AddPurchasePage} />
-        <Route path="/purchaseedit/:id" component={EditPurchasePage} />
-        <Route path="/cart" component={CartPage} />
+        <PrivateRoute path="/create" component={AddFeaturePage} />
+        <PrivateRoute path="/purchase" component={AddPurchasePage} />
+        <PrivateRoute path="/purchaseedit/:id" component={EditPurchasePage} />
+        <PrivateRoute path="/cart" component={CartPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
