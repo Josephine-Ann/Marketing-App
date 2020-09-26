@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import cartCounter from '../selectors/cartCounter';
 // nodejs library that concatenates strings
 import classnames from "classnames";
+import { startLogout } from '../actions/auth';
 
 // reactstrap components
 import {
@@ -82,6 +83,9 @@ function ExamplesNavbar(props) {
               </NavLink>
             </NavItem>
             <NavItem>
+              <button onClick={props.startLogout}>Logout</button>
+            </NavItem>
+            <NavItem>
               <NavLink to="/features" tag={Link}> Features Page
               </NavLink>
             </NavItem>
@@ -105,6 +109,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, undefined)(ExamplesNavbar);
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => dispatch(startLogout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExamplesNavbar);
 
 // export default ExamplesNavbar;

@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import LandingPage from '../components/LandingPage';
 import FeaturesPage from '../components/FeaturesPage';
 import FeaturePage from '../components/FeaturePage';
@@ -12,8 +13,10 @@ import CartPage from '../components/CartPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Navbar from '../components/Navbar';
 
+export const history = createHistory();
+
 const AppRouter = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <div>
       <Navbar />
       <Switch>
@@ -28,7 +31,7 @@ const AppRouter = () => (
         <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </Router>
 );
 
 export default AppRouter;

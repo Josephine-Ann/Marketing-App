@@ -5,8 +5,12 @@ import { startLogin } from '../actions/auth';
 
 export const LoginPage = ({ startLogin }) => (
     <div>
-        <button onClick={startLogin}>Login with Google </button>
         <h1>Hi</h1>
+        <h1>Hi</h1>
+        <h1>Hi</h1>
+        <h1>Hi</h1>
+        <h1>Hi</h1>
+        <button onClick={startLogin}>Login with Google </button>
     </div>
 );
 
