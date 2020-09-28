@@ -1,5 +1,6 @@
 import React from 'react';
 import LandingPageHeader from './LandingPageHeader'
+import { connect } from 'react-redux';
 
 // reactstrap components
 import {
@@ -341,5 +342,7 @@ function LandingPage() {
     </div>
   );
 }
-export default LandingPage;
+
+export default LandingPage
+
 

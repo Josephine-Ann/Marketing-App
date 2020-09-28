@@ -8,7 +8,6 @@ import FeaturePage from '../components/FeaturePage';
 import LoginPage from '../components/LoginPage';
 import AddFeaturePage from '../components/AddFeaturePage';
 import AddPurchasePage from '../components/AddPurchasePage';
-import EditPurchasePage from '../components/EditPurchasePage';
 import CartPage from '../components/CartPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Navbar from '../components/Navbar';
@@ -28,7 +27,6 @@ const AppRouter = () => (
         <Route path="/feature/:id" component={FeaturePage} />
         <PrivateRoute path="/create" component={AddFeaturePage} />
         <PrivateRoute path="/purchase" component={AddPurchasePage} />
-        <PrivateRoute path="/purchaseedit/:id" component={EditPurchasePage} />
         <PrivateRoute path="/cart" component={CartPage} />
         <Route component={NotFoundPage} />
       </Switch>
