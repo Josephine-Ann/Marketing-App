@@ -24,7 +24,7 @@ const AppRouter = () => (
         <Route path="/" component={LandingPage} exact={true} />
         <Route path="/features" component={FeaturesPage} />
         <Route path="/feature/:id" component={FeaturePage} />
-        <PrivateRoute path="/create" component={AddFeaturePage} />
+        <Route path="/create" component={AddFeaturePage} />
         <PrivateRoute path="/purchase" component={AddPurchasePage} />
         <PrivateRoute path="/cart" component={CartPage} />
         <Route component={NotFoundPage} />
