@@ -5,7 +5,6 @@ import createHistory from 'history/createBrowserHistory';
 import LandingPage from '../components/LandingPage';
 import FeaturesPage from '../components/FeaturesPage';
 import FeaturePage from '../components/FeaturePage';
-import LoginPage from '../components/LoginPage';
 import AddFeaturePage from '../components/AddFeaturePage';
 import AddPurchasePage from '../components/AddPurchasePage';
 import CartPage from '../components/CartPage';

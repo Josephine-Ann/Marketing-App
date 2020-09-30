@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged((user) => {
     store.dispatch(startSetPurchases()).then(() => {
       renderApp();
       if (history.location.pathname === '/') {
-        history.push('/dashboard')
+        history.push('/')
       }
     })
   } else {
