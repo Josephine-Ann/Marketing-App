@@ -18,7 +18,9 @@ import {
 } from "reactstrap";
 
 import Badge from '@material-ui/core/Badge';
+import Button from '@material-ui/core/Button';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 function ExamplesNavbar(props) {
@@ -82,19 +84,27 @@ function ExamplesNavbar(props) {
               <NavLink to="/dashboard" tag={Link}> Home
               </NavLink>
             </NavItem>
-            <NavItem>
-              <button onClick={props.startLogout}>Logout</button>
-            </NavItem>
+
             <NavItem>
               <NavLink to="/features" tag={Link}> Features Page
               </NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink className="nav-cart-link" to="/cart" tag={Link}>
                 <Badge badgeContent={props.cartCounter} color="primary">
                   <ShoppingBasketIcon />
                 </Badge>
               </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <Button
+                className="nav-cart-button" variant="contained"
+                size="small" onClick={props.startLogout}
+                startIcon={<ExitToAppIcon />}>
+                Logout
+              </Button>
             </NavItem>
           </Nav>
         </Collapse>
