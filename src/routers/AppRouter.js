@@ -22,10 +22,10 @@ const AppRouter = () => (
       <Navbar />
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
-        <PrivateRoute path="/dashboard" component={LandingPage} exact={true} />
+        <PrivateRoute path="/landingpage" component={LandingPage} exact={true} />
         <Route path="/features" component={FeaturesPage} />
         <Route path="/feature/:id" component={FeaturePage} />
-        <PrivateRoute path="/create" component={AddFeaturePage} />
+        <Route path="/create" component={AddFeaturePage} />
         <PrivateRoute path="/purchase" component={AddPurchasePage} />
         <PrivateRoute path="/cart" component={CartPage} />
         <Route component={NotFoundPage} />
