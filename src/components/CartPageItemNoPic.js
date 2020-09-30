@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import onePurchaseFromFeature from '../selectors/onePurchaseFromFeature';
+
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
 
@@ -8,12 +9,10 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 
 
-export class CartPageItem extends React.Component {
+export class CartPageItemNoPic extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,10 +31,6 @@ export class CartPageItem extends React.Component {
     return (
       <List className="card_list">
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src={this.props.url} />
-          </ListItemAvatar>
-
           <ListItemText
             primary={this.state.name}
             secondary={
@@ -45,11 +40,11 @@ export class CartPageItem extends React.Component {
                   variant="body2"
                   className="inline"
                   color="textPrimary">
-                  {this.state.description} -
+                  products description -
                 </Typography>
                 <CurrencyFormat
                   renderText={(value) => (
-                    <span className="cart-page-price">{value}</span>
+                    <span className="cart-page-price">€ 23.00</span>
                   )}
                   decimalScale={2}
                   value={this.state.amount / 100}
@@ -61,7 +56,7 @@ export class CartPageItem extends React.Component {
             }
           />
 
-          <Button className="cart-page-item-btn" onClick={this.onClick} variant="primary">Delete</Button>
+          <Button className="cart-page-item-btn2" onClick={this.onClick} variant="primary">Delete</Button>
         </ListItem>
         <Divider variant="inset" component="li" />
       </List>
@@ -76,4 +71,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps, undefined)(CartPageItem);
+export default connect(mapStateToProps, undefined)(CartPageItemNoPic);

@@ -1,15 +1,24 @@
 #add-purchase-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
 }
 
 .apurchase-items {
-    align-self: center;
-    margin-top: 10%;
-    margin-right: 3%;
+  align-self: center;
+  // margin-top: 10%;
+  margin-right: 3%;
 }
 
 #feature-form {
-    margin: 150px;
+  margin: 150px;
+}
+
+.add-purchase-form{
+  margin-top: 0px;
+}
+
+.add-purchase-cart-item{
+  margin-top: -20%;
 }

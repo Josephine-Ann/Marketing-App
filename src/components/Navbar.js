@@ -5,6 +5,7 @@ import cartCounter from '../selectors/cartCounter';
 // nodejs library that concatenates strings
 import classnames from "classnames";
 import { startLogout } from '../actions/auth';
+import { startLogin } from '../actions/auth';
 
 // reactstrap components
 import {
@@ -18,7 +19,9 @@ import {
 } from "reactstrap";
 
 import Badge from '@material-ui/core/Badge';
+import Button from '@material-ui/core/Button';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 function ExamplesNavbar(props) {
@@ -82,19 +85,30 @@ function ExamplesNavbar(props) {
               <NavLink to="/landingpage" tag={Link}> Home
               </NavLink>
             </NavItem>
+
             <NavItem>
-              <button onClick={props.startLogout}>Logout</button>
+              <button onClick={props.startLogin}>Login</button>
             </NavItem>
             <NavItem>
               <NavLink to="/features" tag={Link}> Features Page
               </NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink className="nav-cart-link" to="/cart" tag={Link}>
                 <Badge badgeContent={props.cartCounter} color="primary">
                   <ShoppingBasketIcon />
                 </Badge>
               </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <Button
+                className="nav-cart-button" variant="contained"
+                size="small" onClick={props.startLogout}
+                startIcon={<ExitToAppIcon />}>
+                Logout
+              </Button>
             </NavItem>
           </Nav>
         </Collapse>
@@ -110,9 +124,12 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => dispatch(startLogout())
+  startLogout: () => dispatch(startLogout()),
+  startLogin: () => dispatch(startLogin())
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExamplesNavbar);
 
 // export default ExamplesNavbar;
+

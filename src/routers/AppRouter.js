@@ -21,8 +21,7 @@ const AppRouter = () => (
     <div>
       <Navbar />
       <Switch>
-        <PublicRoute path="/" component={LoginPage} exact={true} />
-        <PrivateRoute path="/landingpage" component={LandingPage} exact={true} />
+        <Route path="/" component={LandingPage} exact={true} />
         <Route path="/features" component={FeaturesPage} />
         <Route path="/feature/:id" component={FeaturePage} />
         <Route path="/create" component={AddFeaturePage} />
