@@ -20,7 +20,9 @@ const jsx = (
     <AppRouter />
   </Provider>
 );
+
 let hasRendered = false;
+
 const renderApp = () => {
   if (!hasRendered) {
     ReactDOM.render(jsx, document.getElementById('app'));
@@ -31,6 +33,9 @@ const renderApp = () => {
 store.dispatch(startSetFeatures())
 
 firebase.auth().onAuthStateChanged((user) => {
+  // this fires every time auth state changes
+  // if the user is logged out 'user' will be null
+  // otherwise it will be the user
   if (user) {
     store.dispatch(login(user.uid));
     store.dispatch(startSetPurchases()).then(() => {
