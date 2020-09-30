@@ -5,6 +5,7 @@ import cartCounter from '../selectors/cartCounter';
 // nodejs library that concatenates strings
 import classnames from "classnames";
 import { startLogout } from '../actions/auth';
+import { startLogin } from '../actions/auth';
 
 // reactstrap components
 import {
@@ -81,10 +82,13 @@ function ExamplesNavbar(props) {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to="/dashboard" tag={Link}> Home
+              <NavLink to="/landingpage" tag={Link}> Home
               </NavLink>
             </NavItem>
 
+            <NavItem>
+              <button onClick={props.startLogin}>Login</button>
+            </NavItem>
             <NavItem>
               <NavLink to="/features" tag={Link}> Features Page
               </NavLink>
@@ -120,9 +124,12 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => dispatch(startLogout())
+  startLogout: () => dispatch(startLogout()),
+  startLogin: () => dispatch(startLogin())
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExamplesNavbar);
 
 // export default ExamplesNavbar;
+
