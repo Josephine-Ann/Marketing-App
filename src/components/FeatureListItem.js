@@ -21,7 +21,7 @@ export class FeatureListItem extends React.Component {
             <Card.Title className="feature_card_title"> {this.props.name}</Card.Title>
             <CurrencyFormat
               renderText={(value) => (
-                <Card.Text>{value}</Card.Text>
+                <span>{value}</span>
               )}
               decimalScale={2}
               value={this.props.amount / 100}

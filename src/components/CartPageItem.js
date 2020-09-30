@@ -54,7 +54,7 @@ export class CartPageItem extends React.Component {
                                 </Typography>
                                 <CurrencyFormat
                                     renderText={(value) => (
-                                        <Card.Text className="cart-page-price">{value}</Card.Text>
+                                        <span className="cart-page-price">{value}</span>
                                     )}
                                     decimalScale={2}
                                     value={this.state.amount / 100}
