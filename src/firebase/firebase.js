@@ -11,10 +11,21 @@ const config = {
     measurementId: "G-2L6CXBVD1Z"
 }
 
+
 firebase.initializeApp(config);
+
+let status;
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        status = true
+    } else {
+        status = false
+    }
+})
 
 const database = firebase.database();
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
-export { firebase, googleAuthProvider, database as default };
+export { firebase, googleAuthProvider, status, database as default };

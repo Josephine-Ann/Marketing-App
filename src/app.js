@@ -32,6 +32,8 @@ const renderApp = () => {
 
 store.dispatch(startSetFeatures())
 
+let counter = 1;
+
 firebase.auth().onAuthStateChanged((user) => {
   // this fires every time auth state changes
   // if the user is logged out 'user' will be null
@@ -47,6 +49,5 @@ firebase.auth().onAuthStateChanged((user) => {
   } else {
     store.dispatch(logout());
     renderApp();
-    history.push('/')
   }
 })

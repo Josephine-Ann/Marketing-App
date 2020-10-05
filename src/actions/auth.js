@@ -2,7 +2,6 @@ import { firebase, googleAuthProvider } from '../firebase/firebase';
 
 export const login = (uid, admin) => ({
     type: 'LOGIN',
-    admin: admin,
     uid
 });
 
@@ -11,6 +10,7 @@ export const startLogin = () => {
         return firebase.auth().signInWithPopup(googleAuthProvider);
     };
 };
+
 
 export const logout = () => ({
     type: 'LOGOUT'

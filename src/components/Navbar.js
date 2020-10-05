@@ -6,6 +6,7 @@ import cartCounter from '../selectors/cartCounter';
 import classnames from "classnames";
 import { startLogout } from '../actions/auth';
 import { startLogin } from '../actions/auth';
+import { status } from '../firebase/firebase';
 
 // reactstrap components
 import {
@@ -32,6 +33,10 @@ function ExamplesNavbar(props) {
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle("nav-open");
   };
+
+  const imHere = () => {
+    console.log('hi')
+  }
 
   React.useEffect(() => {
     const updateNavbarColor = () => {
@@ -85,10 +90,6 @@ function ExamplesNavbar(props) {
               <NavLink to="/" tag={Link}> Home
               </NavLink>
             </NavItem>
-
-            <NavItem>
-              <button onClick={props.startLogin}>Login</button>
-            </NavItem>
             <NavItem>
               <NavLink to="/features" tag={Link}> Features Page
               </NavLink>
@@ -96,19 +97,28 @@ function ExamplesNavbar(props) {
 
             <NavItem>
               <NavLink className="nav-cart-link" to="/cart" tag={Link}>
-                <Badge badgeContent={props.cartCounter} color="primary">
+                <Badge badgeContent={props.status ? props.cartCounter : 0} color="primary">
                   <ShoppingBasketIcon />
                 </Badge>
               </NavLink>
             </NavItem>
 
             <NavItem>
-              <Button
-                className="nav-cart-button" variant="contained"
-                size="small" onClick={props.startLogout}
-                startIcon={<ExitToAppIcon />}>
-                Logout
-              </Button>
+              {
+                props.status ? (
+                  <Button
+                    className="nav-cart-button" variant="contained"
+                    size="small" onClick={props.startLogout}
+                    startIcon={<ExitToAppIcon />}>
+                    Logout
+            </Button>
+                ) : (
+                    <Button
+                      className="nav-cart-button" variant="contained"
+                      size="small" onClick={props.startLogin}
+                      startIcon={<ExitToAppIcon />}>
+                      Login
+          </Button>)}
             </NavItem>
           </Nav>
         </Collapse>
@@ -119,14 +129,14 @@ function ExamplesNavbar(props) {
 
 const mapStateToProps = (state) => {
   return {
-    cartCounter: cartCounter(state.purchases)
+    cartCounter: cartCounter(state.purchases),
+    status: status
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   startLogout: () => dispatch(startLogout()),
   startLogin: () => dispatch(startLogin())
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExamplesNavbar);
