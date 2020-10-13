@@ -12,12 +12,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
 
 const store = configureStore();
 
+
+const promise = loadStripe(
+  "pk_test_51HX2p4GRQp1cNJKEeKemoKBzPndfkTh2ijCg4M0nTyp1uAR8GGr4opg5DKXXrnYpxfL1MsRRt6T67p1LtPNMRbf700mp1cvokX"
+);
+
 const jsx = (
   <Provider store={store}>
-    <AppRouter />
+    <Elements stripe={promise}>
+      <AppRouter />
+    </Elements>
   </Provider>
 );
 

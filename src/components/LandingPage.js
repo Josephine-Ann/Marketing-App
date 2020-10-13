@@ -47,10 +47,9 @@ function LandingPage() {
                 <Button
                   className="btn-round"
                   color="info"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
+                  href="/features"
                 >
-                  See Details
+                  shop now!
                 </Button>
               </Col>
             </Row>
@@ -60,7 +59,6 @@ function LandingPage() {
               <Col md="3">
                 <div className="info">
                   <div className="icon icon-info">
-                    {/* <i className="nc-icon nc-album-2" /> */}
                   </div>
                   <div className="description">
                     <h4 className="info-title">Beautiful Gallery</h4>
@@ -68,60 +66,57 @@ function LandingPage() {
                       Spend your time generating new ideas. You don't have to
                       think of implementing.
                     </p>
-                    <Button className="btn-link" color="info" href="#pablo">
+                    {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </Col>
               <Col md="3">
                 <div className="info">
                   <div className="icon icon-info">
-                    {/* <i className="nc-icon nc-bulb-63" /> */}
                   </div>
                   <div className="description">
                     <h4 className="info-title">New Ideas</h4>
-                    <p>
+                    <p className="description">
                       Larger, yet dramatically thinner. More powerful, but
                       remarkably power efficient.
                     </p>
-                    <Button className="btn-link" color="info" href="#pablo">
+                    {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </Col>
               <Col md="3">
                 <div className="info">
                   <div className="icon icon-info">
-                    {/* <i className="nc-icon nc-chart-bar-32" /> */}
                   </div>
                   <div className="description">
                     <h4 className="info-title">Statistics</h4>
-                    <p>
+                    <p className="description">
                       Choose from a veriety of many colors resembling sugar
                       paper pastels.
                     </p>
-                    <Button className="btn-link" color="info" href="#pablo">
+                    {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </Col>
               <Col md="3">
                 <div className="info">
                   <div className="icon icon-info">
-                    {/* <i className="nc-icon nc-sun-fog-29" /> */}
                   </div>
                   <div className="description">
                     <h4 className="info-title">Delightful design</h4>
-                    <p>
+                    <p className="description">
                       Find unique and handmade delightful designs related items
                       directly from our sellers.
                     </p>
-                    <Button className="btn-link" color="info" href="#pablo">
+                    {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </Col>
@@ -138,14 +133,14 @@ function LandingPage() {
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         alt="..."
-                        src=""
+                        src="https://res.cloudinary.com/chadsaglam/image/upload/v1570714503/Chad/zwufypympohhf0z3c2nb.jpg"
                       />
                     </a>
                   </div>
                   <CardBody>
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <div className="author">
-                        <CardTitle tag="h4">Henry Ford</CardTitle>
+                        <CardTitle tag="h4">Chad Saglam</CardTitle>
                         <h6 className="card-category">Product Manager</h6>
                       </div>
                     </a>
@@ -155,49 +150,24 @@ function LandingPage() {
                       the money that you want without becoming very good at it.
                     </p>
                   </CardBody>
-                  <CardFooter className="text-center">
-                    <Button
-                      className="btn-just-icon btn-neutral"
-                      color="link"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fa fa-twitter" />
-                    </Button>
-                    <Button
-                      className="btn-just-icon btn-neutral ml-1"
-                      color="link"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fa fa-google-plus" />
-                    </Button>
-                    <Button
-                      className="btn-just-icon btn-neutral ml-1"
-                      color="link"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fa fa-linkedin" />
-                    </Button>
-                  </CardFooter>
+
                 </Card>
               </Col>
               <Col md="4">
                 <Card className="card-profile card-plain">
                   <div className="card-avatar">
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                    <a href="/feature" >
                       <img
                         alt="..."
-                        src=""
+                        src="https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg"
                       />
                     </a>
                   </div>
                   <CardBody>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                    <a href="/feature">
                       <div className="author">
-                        <CardTitle tag="h4">Sophie West</CardTitle>
-                        <h6 className="card-category">Designer</h6>
+                        <CardTitle tag="h4">Sophie</CardTitle>
+                        <h6 className="card-category">Your Friend</h6>
                       </div>
                     </a>
                     <p className="card-description text-center">
@@ -207,48 +177,22 @@ function LandingPage() {
                       orchestra to play it.
                     </p>
                   </CardBody>
-                  <CardFooter className="text-center">
-                    <Button
-                      className="btn-just-icon btn-neutral"
-                      color="link"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fa fa-twitter" />
-                    </Button>
-                    <Button
-                      className="btn-just-icon btn-neutral ml-1"
-                      color="link"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fa fa-google-plus" />
-                    </Button>
-                    <Button
-                      className="btn-just-icon btn-neutral ml-1"
-                      color="link"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className="fa fa-linkedin" />
-                    </Button>
-                  </CardFooter>
                 </Card>
               </Col>
               <Col md="4">
                 <Card className="card-profile card-plain">
                   <div className="card-avatar">
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                    <a href="#pablo" >
                       <img
                         alt="..."
-                        src=""
+                        src="https://res.cloudinary.com/chadsaglam/image/upload/v1602596539/Chad/xyqheqaetmjcltg53dtb.jpg"
                       />
                     </a>
                   </div>
                   <CardBody>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                    <a href="#pablo">
                       <div className="author">
-                        <CardTitle tag="h4">Robert Orben</CardTitle>
+                        <CardTitle tag="h4">Josephine Ann</CardTitle>
                         <h6 className="card-category">Developer</h6>
                       </div>
                     </a>
