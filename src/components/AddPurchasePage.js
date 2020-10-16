@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
 import { startEditPurchase } from '../actions/purchases';
+import { startRemovePurchase } from '../actions/purchases';
 import selectPurchasesSummary from '../selectors/purchasesSummary';
 import CardDeck from 'react-bootstrap/CardDeck'
 import uuid from 'uuid';
 import { CartPageItemNoPic } from './CartPageItemNoPic';
-
 
 export class AddPurchasePage extends React.Component {
   onSubmit = (purchase) => {
@@ -15,11 +15,11 @@ export class AddPurchasePage extends React.Component {
       let id = indPurchase.id
       this.props.startEditPurchase(id, purchase)
     })
+    console.log(`Hi`)
   };
 
   onClick = (purchaseId) => {
     console.log(purchaseId)
-    this.props.startRemovePurchase(purchaseId);
   }
 
   render() {
@@ -42,8 +42,8 @@ export class AddPurchasePage extends React.Component {
                   <p>No purchases</p>
                 </div>
               ) : (
-                  this.props.purchases.map((purchases) => {
-                    return <CartPageItemNoPic key={uuid()} {...purchases} onClick={this.onClick} />;
+                  this.props.purchases.map((purchase) => {
+                    return <CartPageItemNoPic key={uuid()} {...purchase} onClick={this.onClick} />;
                   })
                 )
             }
@@ -57,14 +57,14 @@ export class AddPurchasePage extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     feature: state.features.find((feature) => feature.id === props.match.params.id),
-    features: selectPurchasesSummary(state.features, state.purchases),
-    purchases: state.purchases,
+    purchases: selectPurchasesSummary(state.features, state.purchases),
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   startAddPurchase: (purchase) => dispatch(startAddPurchase(purchase)),
-  startEditPurchase: (id, purchase) => dispatch(startEditPurchase(id, purchase))
+  startEditPurchase: (id, purchase) => dispatch(startEditPurchase(id, purchase)),
+  startRemovePurchase: (id) => dispatch(startRemovePurchase(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPurchasePage);

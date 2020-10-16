@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startRemovePurchase } from '../actions/purchases';
+import { startAddPurchase } from '../actions/purchases';
 import selectPurchasesSummary from '../selectors/purchasesSummary';
-import purchasesPrice from '../selectors/purchasesPrice';
 import purchasesFeatureIds from '../selectors/purchasesFeatureIds';
+import purchasesFromFeatures from '../selectors/purchasesFromFeatures';
+import purchasesPrice from '../selectors/purchasesPrice';
 import { NavLink } from 'react-router-dom';
 import CardDeck from 'react-bootstrap/CardDeck'
 import uuid from 'uuid';
@@ -12,9 +14,7 @@ import CartPageItem from './CartPageItem';
 import Button from 'react-bootstrap/Button'
 
 export class CartPage extends React.Component {
-
   onClick = (purchaseId) => {
-    console.log(purchaseId)
     this.props.startRemovePurchase(purchaseId);
   }
 
@@ -57,7 +57,8 @@ export class CartPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startRemovePurchase: (purchase) => dispatch(startRemovePurchase(purchase))
+  startRemovePurchase: (id) => dispatch(startRemovePurchase(id)),
+  startAddPurchase: (purchase) => dispatch(startRemovePurchase(purchase))
 });
 
 const mapStateToProps = (state) => {
@@ -65,10 +66,9 @@ const mapStateToProps = (state) => {
     purchases: selectPurchasesSummary(state.features, state.purchases),
     purchasesPrice: purchasesPrice(state.features, state.purchases),
     purchasesFeatureIds: purchasesFeatureIds(state.features, state.purchases),
-    purchaseDetails: state.purchases
+    purchasesFromFeatures: purchasesFromFeatures(state.features, state.purchases),
+    purchaseDetails: state.purchases,
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
-
-

@@ -45,7 +45,7 @@ export class CartPageItem extends React.Component {
                   variant="body2"
                   className="inline"
                   color="textPrimary">
-                  {this.state.description} -
+                  {this.state.description}
                 </Typography>
                 <CurrencyFormat
                   renderText={(value) => (
@@ -71,8 +71,7 @@ export class CartPageItem extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    purchaseId: onePurchaseFromFeature(props.id, state.purchases),
-    name: props.name
+    purchaseId: onePurchaseFromFeature(props.id, state.purchases)
   };
 };
 

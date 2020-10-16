@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import onePurchaseFromFeature from '../selectors/onePurchaseFromFeature';
-
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
-
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
@@ -19,12 +17,13 @@ export class CartPageItemNoPic extends React.Component {
       name: props.name,
       amount: props.amount,
       description: props.description,
-      id: props.id
+      id: props.id,
+      purchaseId: props.purchaseId
     };
   }
   onClick = () => {
     this.props.onClick({
-      id: this.props.purchaseId
+      id: this.state.purchaseId
     })
   }
   render() {
@@ -40,11 +39,12 @@ export class CartPageItemNoPic extends React.Component {
                   variant="body2"
                   className="inline"
                   color="textPrimary">
-                  products description -
+                  {this.state.description}
+                  {this.props.name}
                 </Typography>
                 <CurrencyFormat
                   renderText={(value) => (
-                    <span className="cart-page-price">€ 23.00</span>
+                    <span className="cart-page-price">{value}</span>
                   )}
                   decimalScale={2}
                   value={this.state.amount / 100}
@@ -66,9 +66,9 @@ export class CartPageItemNoPic extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    purchaseId: onePurchaseFromFeature(props.id, state.purchases),
-    name: props.name
+    purchaseId: onePurchaseFromFeature(props.id, state.purchases)
   };
 };
 
 export default connect(mapStateToProps, undefined)(CartPageItemNoPic);
+

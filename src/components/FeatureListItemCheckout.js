@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startAddPurchase } from '../actions/purchases';
 import { NavLink } from 'react-router-dom';
+import purchasesPrice from '../selectors/purchasesPrice';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
@@ -42,7 +43,8 @@ export class FeatureListItem extends React.Component {
 const mapStateToProps = (state) => {
   return {
     purchases: state.purchases,
-    lastPurchaseAddress: lastAddress(state.purchases)
+    lastPurchaseAddress: lastAddress(state.purchases),
+    purchasesPrice: purchasesPrice(state.features, state.purchases),
   }
 }
 

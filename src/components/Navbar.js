@@ -34,10 +34,6 @@ function ExamplesNavbar(props) {
     document.documentElement.classList.toggle("nav-open");
   };
 
-  const imHere = () => {
-    console.log('hi')
-  }
-
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -111,14 +107,14 @@ function ExamplesNavbar(props) {
                     size="small" onClick={props.startLogout}
                     startIcon={<ExitToAppIcon />}>
                     Logout
-            </Button>
+                  </Button>
                 ) : (
                     <Button
                       className="nav-cart-button" variant="contained"
                       size="small" onClick={props.startLogin}
                       startIcon={<ExitToAppIcon />}>
                       Login
-          </Button>)}
+                    </Button>)}
             </NavItem>
           </Nav>
         </Collapse>
