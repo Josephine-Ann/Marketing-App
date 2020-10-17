@@ -81,10 +81,10 @@ class PurchaseForm extends React.Component {
               </Form.Control.Feedback>
             </Form.Group>
           </Form.Row>
-          <input />
-          <input />
-          <input />
-          <input />
+          <input pattern="[0-9]{4}" />
+          <input pattern="[0-9]{4}" />
+          <input pattern="[0-9]{4}" />
+          <input pattern="[0-9]{4}" />
           <Button variant="primary" type="submit">
             Submit
           </Button>
