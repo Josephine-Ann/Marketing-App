@@ -34,7 +34,8 @@ class PurchaseForm extends React.Component {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
         address: this.state.address,
-        extraInfo: this.state.extraInfo
+        extraInfo: this.state.extraInfo,
+        bought: true
       });
     }
   };
@@ -80,6 +81,10 @@ class PurchaseForm extends React.Component {
               </Form.Control.Feedback>
             </Form.Group>
           </Form.Row>
+          <input />
+          <input />
+          <input />
+          <input />
           <Button variant="primary" type="submit">
             Submit
           </Button>

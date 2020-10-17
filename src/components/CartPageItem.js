@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import onePurchaseFromFeature from '../selectors/onePurchaseFromFeature';
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
-
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";

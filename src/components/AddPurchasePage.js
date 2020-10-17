@@ -11,15 +11,12 @@ import { CartPageItemNoPic } from './CartPageItemNoPic';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 
-
 export class AddPurchasePage extends React.Component {
-
   onSubmit = (purchase) => {
-    this.props.purchases.forEach((indPurchase) => {
-      let id = indPurchase.id
-      this.props.startEditPurchase(id, purchase)
+    this.props.realPurchases.forEach((indPurchase) => {
+      this.props.startEditPurchase(indPurchase.id, purchase)
     })
-    console.log(`Hi`)
+    this.props.history.push('/orders');
   };
 
   onClick = (purchaseId) => {
@@ -41,24 +38,7 @@ export class AddPurchasePage extends React.Component {
             return <FeatureListItemCheckout key={uuid()} {...feature} />;
           })}
         </CardDeck> */}
-<<<<<<< HEAD
-        <CardDeck >
-          return <div key={uuid()} className="add-purchase-cart-item">
-            {
-              this.props.purchases.length === 0 ? (
-                <div>
-                  <p>No purchases</p>
-                </div>
-              ) : (
-                  this.props.purchases.map((purchase) => {
-                    return <CartPageItemNoPic key={uuid()} {...purchase} onClick={this.onClick} />;
-                  })
-                )
-            }
-          </div>;
-        </CardDeck>
-=======
-          <CardDeck >
+          <CardDeck>
             return <div key={uuid()} className="add-purchase-cart-item">
               {
                 this.props.purchases.length === 0 ? (
@@ -66,49 +46,14 @@ export class AddPurchasePage extends React.Component {
                     <p>No purchases</p>
                   </div>
                 ) : (
-                    this.props.purchases.map((purchases) => {
-                      return <CartPageItemNoPic key={uuid()} {...purchases} onClick={this.onClick} />;
+                    this.props.purchases.map((purchase) => {
+                      return <CartPageItemNoPic key={uuid()} {...purchase} onClick={this.onClick} />;
                     })
                   )
               }
             </div>;
-          </CardDeck>
+        </CardDeck>
         </div>
-
-        {/* Payment section - Payment method */}
-        <div className='payment__section'>
-          <div className="payment__title">
-            <h4>Payment Method</h4>
-          </div>
-          <div className="payment__details">
-            {/* Stripe magic will go */}
-
-            <form >
-              <CardElement />
-
-              {/* <div className='payment__priceContainer'>
-                <CurrencyFormat
-                  renderText={(value) => (
-                    <h3>Order Total: {value}</h3>
-                  )}
-                  decimalScale={2}
-                  value={2333}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
-                <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                </button>
-              </div> */}
-
-              {/* Errors */}
-              {/* {error && <div>{error}</div>} */}
-            </form>
-          </div>
-        </div>
-
->>>>>>> 4db2bc5b8c0497199558047f04f6696094b452cc
       </div>
 
     );
@@ -119,6 +64,7 @@ const mapStateToProps = (state, props) => {
   return {
     feature: state.features.find((feature) => feature.id === props.match.params.id),
     purchases: selectPurchasesSummary(state.features, state.purchases),
+    realPurchases: state.purchases
   }
 }
 

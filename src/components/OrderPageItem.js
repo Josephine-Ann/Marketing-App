@@ -7,29 +7,34 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 
 
-export class CartPageItemNoPic extends React.Component {
+export class OrderPageItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: props.name,
       amount: props.amount,
       description: props.description,
-      id: props.id,
-      purchaseId: props.purchaseId
+      id: props.id
     };
   }
   onClick = () => {
     this.props.onClick({
-      id: this.state.purchaseId
+      id: this.props.purchaseId
     })
   }
   render() {
     return (
       <List className="card_list">
         <ListItem alignItems="flex-start">
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={this.props.url} />
+          </ListItemAvatar>
+
           <ListItemText
             primary={this.state.name}
             secondary={
@@ -39,6 +44,7 @@ export class CartPageItemNoPic extends React.Component {
                   variant="body2"
                   className="inline"
                   color="textPrimary">
+                  {this.state.description}
                 </Typography>
                 <CurrencyFormat
                   renderText={(value) => (
@@ -67,5 +73,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps, undefined)(CartPageItemNoPic);
-
+export default connect(mapStateToProps, undefined)(OrderPageItem);

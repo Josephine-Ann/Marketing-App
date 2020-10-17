@@ -1,7 +1,7 @@
 export default (features, purchases) => {
     // get all of the featureIds from purchases
     let purchasesCopy = purchases
-    purchasesCopy = purchasesCopy.filter(x => x.bought === false)
+    purchasesCopy = purchasesCopy.filter(x => x.bought === true)
     if (purchasesCopy.length === 0) {
         return purchasesCopy
     } else {
