@@ -13,12 +13,10 @@ export const startAddPurchase = (purchaseData = {}) => {
         const {
             address = '',
             extraInfo = '',
-            amount = 0,
-            quantity = 0,
             featureId = '',
             bought = false
         } = purchaseData;
-        const purchase = { address, amount, bought, quantity, extraInfo, featureId }
+        const purchase = { address, bought, extraInfo, featureId }
         database.ref(`users/${uid}/purchases`).push(purchase).then((ref) => {
             dispatch(addPurchase({
                 id: ref.key,
@@ -56,7 +54,7 @@ export const editPurchase = (id, updates) => ({
 export const startEditPurchase = (id, updates) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
-        return database.ref(`users/${uid}/purchases`).update(updates).then(() => {
+        return database.ref(`users/${uid}/purchases/${id}`).update(updates).then(() => {
             dispatch(editPurchase(id, updates));
         });
     };
