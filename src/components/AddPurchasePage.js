@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
+import { startAddOrder } from '../actions/orders';
 import { startEditPurchase } from '../actions/purchases';
 import { startRemovePurchase } from '../actions/purchases';
 import selectPurchasesSummary from '../selectors/purchasesSummary';
@@ -13,15 +14,14 @@ import CurrencyFormat from "react-currency-format";
 
 export class AddPurchasePage extends React.Component {
   onSubmit = (purchase) => {
+    this.props.startAddOrder({ orderId: purchase.orderId })
     this.props.realPurchases.forEach((indPurchase) => {
-      this.props.startEditPurchase(indPurchase.id, purchase)
+      if (indPurchase.bought === false) {
+        this.props.startEditPurchase(indPurchase.id, { address: purchase.address, extraInfo: purchase.extraInfo, bought: purchase.bought, orderId: purchase.orderId })
+      }
     })
     this.props.history.push('/orders');
   };
-
-  onClick = (purchaseId) => {
-    console.log(purchaseId)
-  }
 
   render() {
 
@@ -70,6 +70,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   startAddPurchase: (purchase) => dispatch(startAddPurchase(purchase)),
+  startAddOrder: (orderId) => dispatch(startAddOrder(orderId)),
   startEditPurchase: (id, purchase) => dispatch(startEditPurchase(id, purchase)),
   startRemovePurchase: (id) => dispatch(startRemovePurchase(id))
 });

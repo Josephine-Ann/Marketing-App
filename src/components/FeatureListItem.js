@@ -10,7 +10,7 @@ import lastAddress from '../selectors/lastAddress';
 export class FeatureListItem extends React.Component {
   onSubmit = () => {
     this.props.startAddPurchase({ featureId: this.props.id, quantity: 1, address: '', extraInfo: '', amount: 0 })
-    console.log(this.props.purchases)
+
   };
   render() {
     return (
