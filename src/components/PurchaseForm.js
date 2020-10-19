@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import lastAddress from '../selectors/lastAddress';
 import { connect } from 'react-redux';
 import { Col, Row, Form } from "react-bootstrap";
+import uuid from 'uuid';
 
 class PurchaseForm extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class PurchaseForm extends React.Component {
       address: props.purchase ? props.purchase.address : '',
       extraInfo: props.purchase ? props.purchase.extraInfo : '',
       quantity: props.purchase ? (props.purchase.quantity / 100).toString() : 1,
+      orderId: uuid(),
       error: '',
       featureId: ''
     };
@@ -35,7 +37,8 @@ class PurchaseForm extends React.Component {
       this.props.onSubmit({
         address: this.state.address,
         extraInfo: this.state.extraInfo,
-        bought: true
+        bought: true,
+        orderId: this.state.orderId
       });
     }
   };

@@ -14,9 +14,10 @@ export const startAddPurchase = (purchaseData = {}) => {
             address = '',
             extraInfo = '',
             featureId = '',
-            bought = false
+            bought = false,
+            orderId = '',
         } = purchaseData;
-        const purchase = { address, bought, extraInfo, featureId }
+        const purchase = { address, bought, extraInfo, featureId, orderId }
         database.ref(`users/${uid}/purchases`).push(purchase).then((ref) => {
             dispatch(addPurchase({
                 id: ref.key,

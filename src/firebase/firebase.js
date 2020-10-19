@@ -12,7 +12,6 @@ const config = {
 }
 
 firebase.initializeApp(config);
-
 let status;
 
 firebase.auth().onAuthStateChanged((user) => {
