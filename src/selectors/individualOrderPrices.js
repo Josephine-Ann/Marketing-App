@@ -1,9 +1,10 @@
-export default (orders, purchases, features) => {
+export default (orders, purchases, features, orderIndex) => {
     const finalProduct = []
     const orderIds = []
     let purchasesFromOrderIds = []
     let featuresIdsFromPurchases = []
     let featuresFromFeatureIds = []
+    let amounts = []
     orders.forEach((order) => {
         finalProduct.push(order.date)
         orderIds.push(order.orderId)
@@ -26,6 +27,18 @@ export default (orders, purchases, features) => {
             featuresFromFeatureIds[featuresFromFeatureIds.length - 1].push(features.find(feature => feature.id === fid))
         })
     })
-    return featuresFromFeatureIds
+    featuresIdsFromPurchases.forEach((featureId) => {
+        featuresFromFeatureIds.push([])
+        featureId.forEach((fid) => {
+            featuresFromFeatureIds[featuresFromFeatureIds.length - 1].push(features.find(feature => feature.id === fid))
+        })
+    })
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    featuresFromFeatureIds.forEach((feature) => {
+        amounts.push([])
+        feature.forEach(f => amounts[amounts.length - 1].push(f.amount))
+        amounts[amounts.length - 1] = amounts[amounts.length - 1].reduce(reducer)
+    })
+    return amounts
 }
 // featuresFromOrderIds.push(features.find(feature => feature.id === orderIds[0]))

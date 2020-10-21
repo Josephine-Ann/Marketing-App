@@ -10,7 +10,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-
+import individualOrders from '../selectors/individualOrders';
+import individualOrderPrices from '../selectors/individualOrderPrices';
+import uuid from 'uuid';
 
 export class OrderPageItem extends React.Component {
   constructor(props) {
@@ -19,57 +21,35 @@ export class OrderPageItem extends React.Component {
       name: props.name,
       amount: props.amount,
       description: props.description,
-      id: props.id
+      url: props.url
     };
-  }
-  onClick = () => {
-    this.props.onClick({
-      id: this.props.purchaseId
-    })
   }
   render() {
     return (
-      <List className="card_list">
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src={this.props.url} />
-          </ListItemAvatar>
-
-          <ListItemText
-            primary={this.state.name}
-            secondary={
-              <React.Fragment>
-                <Typography
-                  component="span"
-                  variant="body2"
-                  className="inline"
-                  color="textPrimary">
-                  {this.state.description}
-                </Typography>
-                <CurrencyFormat
-                  renderText={(value) => (
-                    <span className="cart-page-price">{value}</span>
-                  )}
-                  decimalScale={2}
-                  value={this.state.amount / 100}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  suffix={" €"}
-                />
-              </React.Fragment>
-            }
-          />
-
-        </ListItem>
-        <Divider variant="inset" component="li" />
-      </List>
+      <div>
+        <p>Order made on: {(new Date(this.props.date)).toString()}</p>
+        {
+          this.props.individualOrders[this.props.index - 1].map((order) => {
+            return <div key={uuid()}>
+              <p>Product name: {order.name}</p>
+              <p>Product URL: {order.url}</p>
+            </div>
+          })
+        }
+        <p>Price of entire order: {this.props.individualOrderPrices[this.props.index - 1]}</p>
+       __________________________________________________________________________________________________
+       __________________________________________________________________________________________________
+       __________________________________________________________________________________________________
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
   return {
-    purchaseId: onePurchaseFromFeature(props.id, state.purchases)
+    individualOrders: individualOrders(state.orders, state.purchases, state.features),
+    orders: state.orders,
+    individualOrderPrices: individualOrderPrices(state.orders, state.purchases, state.features)
   };
 };
 

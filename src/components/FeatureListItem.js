@@ -6,11 +6,12 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import CurrencyFormat from "react-currency-format";
 import lastAddress from '../selectors/lastAddress';
+import individualOrderPrices from '../selectors/individualOrderPrices';
 
 export class FeatureListItem extends React.Component {
   onSubmit = () => {
     this.props.startAddPurchase({ featureId: this.props.id, quantity: 1, address: '', extraInfo: '', amount: 0 })
-
+    console.log(this.props.individualOrderPrices)
   };
   render() {
     return (
@@ -43,8 +44,10 @@ export class FeatureListItem extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    orders: state.orders,
     purchases: state.purchases,
-    lastPurchaseAddress: lastAddress(state.purchases)
+    lastPurchaseAddress: lastAddress(state.purchases),
+    individualOrderPrices: individualOrderPrices(state.orders, state.purchases, state.features)
   }
 }
 
