@@ -1,24 +1,47 @@
-#add-purchase-area {
+.add-purchase-area {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10%;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  // align-items: center;
+  // margin-top: 10%;
+  // margin-left: 10%;
+  // margin-right: 10%;
+  margin: 5% 20% 0 15%;
+}
+
+.card-purchase{
+  margin-top: 7%;
+  // display: flex;
+  // flex-wrap: wrap;
 }
 
 .apurchase-items {
-  align-self: center;
-  // margin-top: 10%;
-  margin-right: 3%;
+  // align-self: center;
+  margin-top: 10%;
 }
 
 #feature-form {
-  margin: 150px;
+  // margin: 150px;
 }
 
 .add-purchase-form{
-  margin-top: 0px;
+  // margin-top: 0px;
 }
 
 .add-purchase-cart-item{
-  margin-top: -20%;
+  // margin-top: -20%;
+  display: flex;
+  // flex-wrap: wrap;
+  margin: 0px 12%;
+  flex-wrap: wrap;
+}
+
+.card_purchase{
+  width: 250px;
+  height: 150px;
+  margin: 10px 10px 90px 10px;
+  text-align: center;
+  .card_purchase_price{
+    font-size: 32px;
+  }
 }

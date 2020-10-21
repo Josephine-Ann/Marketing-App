@@ -6,11 +6,9 @@ import { startAddOrder } from '../actions/orders';
 import { startEditPurchase } from '../actions/purchases';
 import { startRemovePurchase } from '../actions/purchases';
 import selectPurchasesSummary from '../selectors/purchasesSummary';
-import CardDeck from 'react-bootstrap/CardDeck'
+// import CardDeck from 'react-bootstrap/CardDeck'
 import uuid from 'uuid';
 import { CartPageItemNoPic } from './CartPageItemNoPic';
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
 
 export class AddPurchasePage extends React.Component {
   onSubmit = (purchase) => {
@@ -27,18 +25,8 @@ export class AddPurchasePage extends React.Component {
 
     return (
       <div >
-        <div id="add-purchase-area">
-
-          <PurchaseForm
-            className="add-purchase-form"
-            onSubmit={this.onSubmit}
-          />
-          {/* <CardDeck>
-          {this.props.features.map((feature) => {
-            return <FeatureListItemCheckout key={uuid()} {...feature} />;
-          })}
-        </CardDeck> */}
-          <CardDeck>
+        <div className="add-purchase-area">
+          <div className="card-purchase">
             return <div key={uuid()} className="add-purchase-cart-item">
               {
                 this.props.purchases.length === 0 ? (
@@ -52,7 +40,13 @@ export class AddPurchasePage extends React.Component {
                   )
               }
             </div>;
-        </CardDeck>
+          </div>
+
+          <PurchaseForm
+            className="add-purchase-form"
+            onSubmit={this.onSubmit}
+          />
+
         </div>
       </div>
 

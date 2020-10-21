@@ -12,7 +12,6 @@ import OrdersPage from '../components/OrdersPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Navbar from '../components/Navbar';
 import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 

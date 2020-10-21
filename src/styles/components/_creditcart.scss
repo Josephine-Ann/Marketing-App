@@ -1,0 +1,68 @@
+.App-payment {
+  // display: flex;
+  // flex-wrap: wrap;
+  // margin: 0px 30px;
+  form {
+    // margin: 0px 30px;
+    margin-top: 20px;
+    // max-width: 400px;
+    h5{
+      color: white;
+      font-weight: 600;
+    }
+    small {
+      color: white;
+    }
+    .form-actions {
+      margin-top: 15px;
+    }
+  }
+
+  .App-highlight {
+    font-family: serif;
+    margin: 15px auto 0;
+    max-width: 300px;
+    div {
+      padding-left: 40px;
+    }
+  }
+
+}
+
+.App-badges {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-badges a {
+  display: block;
+}
+
+.App-badges a + a {
+  margin-top: 18px;
+}
+
+.App-credits {
+  background-color: #000;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+}
+
+.App-credits a {
+  color: #fff;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .App-badges {
+    flex-direction: row;
+  }
+
+  .App-badges a + a {
+    margin-top: 0;
+    margin-left: 18px;
+  }
+}
