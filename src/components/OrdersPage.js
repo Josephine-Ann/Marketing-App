@@ -12,44 +12,34 @@ import uuid from 'uuid';
 import CurrencyFormat from "react-currency-format";
 import OrderPageItem from './OrderPageItem';
 import Button from 'react-bootstrap/Button'
+import individualOrders from '../selectors/individualOrders';
 
-export class OrderPage extends React.Component {
+export class OrdersPage extends React.Component {
+
   onClick = (purchaseId) => {
     this.props.startRemovePurchase(purchaseId);
     console.log(this.props.purchases)
   }
-
-
   render() {
     return (
       <div id="cart-page">
         <h1>Your orders</h1>
         <hr />
         <CardDeck id="cart-page-cards">
-          return <div key={uuid()}>
+          <div key={uuid()}>
             {
-              this.props.purchases.length === 0 ? (
+              this.props.individualOrders.length === 0 ? (
                 <div>
                   <p>No purchases</p>
                 </div>
               ) : (
-                  this.props.purchases.map((purchases) => {
-                    return <OrderPageItem key={uuid()} {...purchases} onClick={this.onClick} />;
+                  this.props.orders.map((order) => {
+                    return <OrderPageItem key={uuid()} {...order} onClick={this.onClick} />
                   })
                 )
             }
           </div>;
         </CardDeck>
-        <CurrencyFormat
-          renderText={(value) => (
-            <h2 className="cardPage_h2"> The total cost is {value}</h2>
-          )}
-          decimalScale={2}
-          value={this.props.purchasesPrice / 100}
-          displayType={"text"}
-          thousandSeparator={true}
-          suffix={" €"}
-        />
       </div>
 
     )
@@ -67,8 +57,10 @@ const mapStateToProps = (state) => {
     purchasesPrice: purchasesPrice(state.features, state.purchases),
     purchasesFeatureIds: purchasesFeatureIds(state.features, state.purchases),
     purchasesFromFeatures: purchasesFromFeatures(state.features, state.purchases),
-    purchaseDetails: state.purchases
+    purchaseDetails: state.purchases,
+    individualOrders: individualOrders(state.orders, state.purchases, state.features),
+    orders: state.orders
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderPage);
+export default connect(mapStateToProps, mapDispatchToProps)(OrdersPage);

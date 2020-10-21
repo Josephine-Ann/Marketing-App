@@ -12,9 +12,10 @@ export const startAddOrder = (orderData = {}) => {
         const uid = getState().auth.uid;
         const {
             orderId = '',
-            date = Date.now()
+            date = Date.now(),
+            index = 0
         } = orderData;
-        const order = { orderId, date }
+        const order = { orderId, date, index }
         database.ref(`users/${uid}/orders`).push(order).then((ref) => {
             dispatch(addOrder({
                 id: ref.key,

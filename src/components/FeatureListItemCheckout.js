@@ -11,7 +11,7 @@ import lastAddress from '../selectors/lastAddress';
 export class FeatureListItem extends React.Component {
   onSubmit = () => {
     this.props.startAddPurchase({ featureId: this.props.id, quantity: 1, address: '', extraInfo: '', amount: 0 })
-    console.log(this.props.purchases)
+    console.log(this.props.individualOrders)
   };
   render() {
     return (
@@ -45,6 +45,7 @@ const mapStateToProps = (state) => {
     purchases: state.purchases,
     lastPurchaseAddress: lastAddress(state.purchases),
     purchasesPrice: purchasesPrice(state.features, state.purchases),
+    individualOrders: individualOrder(state.orders, state.purchases, state.features),
   }
 }
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import individualOrders from '../selectors/individualOrders';
+import individualOrderPrices from '../selectors/individualOrderPrices';
 import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';
 import { startAddOrder } from '../actions/orders';
@@ -14,7 +16,7 @@ import CurrencyFormat from "react-currency-format";
 
 export class AddPurchasePage extends React.Component {
   onSubmit = (purchase) => {
-    this.props.startAddOrder({ orderId: purchase.orderId })
+    this.props.startAddOrder({ orderId: purchase.orderId, index: this.props.orders.length + 1 })
     this.props.realPurchases.forEach((indPurchase) => {
       if (indPurchase.bought === false) {
         this.props.startEditPurchase(indPurchase.id, { address: purchase.address, extraInfo: purchase.extraInfo, bought: purchase.bought, orderId: purchase.orderId })
@@ -64,7 +66,9 @@ const mapStateToProps = (state, props) => {
   return {
     feature: state.features.find((feature) => feature.id === props.match.params.id),
     purchases: selectPurchasesSummary(state.features, state.purchases),
-    realPurchases: state.purchases
+    realPurchases: state.purchases,
+    orders: state.orders,
+    individualOrderPrices: individualOrderPrices(state.orders, state.purchases, state.features)
   }
 }
 
