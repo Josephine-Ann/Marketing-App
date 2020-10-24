@@ -47,3 +47,43 @@
     font-size: 32px;
   }
 }
+
+
+@media all and (max-width: 699px) and (min-width: 520px) {
+  .add-purchase-area {
+    flex-direction: column;
+    margin: 5% 5% 0 10%;
+  }
+
+  .card-purchase{
+    margin-top: 10%;
+    margin-left: 0%;
+    max-width: 0% !important;
+  }
+}
+
+@media all and (max-width: 1000px) and (min-width: 700px) {
+  .add-purchase-area {
+    flex-direction: column;
+    margin: 5% 5% 0 10%;
+  }
+
+  .card-purchase{
+    margin-top: 10%;
+    margin-left: 0%;
+    max-width: 0% !important;
+  }
+}
+
+@media all and (max-width: 1500px) and (min-width: 1001px) {
+  .add-purchase-area {
+    // flex-direction: column;
+    margin: -5% -15% 0 -50%;
+  }
+
+  .card-purchase{
+    margin-top: 10%;
+    margin-left: 0%;
+    max-width: 0% !important;
+  }
+}

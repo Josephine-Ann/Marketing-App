@@ -11,3 +11,26 @@
     // flex-wrap: wrap;
     position: fixed;
 }
+
+
+@media all and (max-width: 699px) and (min-width: 520px) {
+  .form-details{
+    max-width: 67%;
+    margin-top: 10%;
+    position: absolute;
+  }
+}
+
+@media all and (max-width: 1000px) and (min-width: 700px) {
+    .form-details{
+        margin-top: 10%;
+        position: absolute;
+      }
+}
+
+@media all and (max-width: 1500px) and (min-width: 1001px) {
+    .form-details{
+        margin-top: 5%;
+        // position: absolute;
+      }
+}
