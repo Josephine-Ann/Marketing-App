@@ -35,7 +35,7 @@ export default (orders, purchases, features, orderIndex) => {
     })
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     featuresFromFeatureIds.forEach((feature) => {
-        amounts.push([])
+        amounts.push([0])
         feature.forEach(f => amounts[amounts.length - 1].push(f.amount))
         amounts[amounts.length - 1] = amounts[amounts.length - 1].reduce(reducer)
     })

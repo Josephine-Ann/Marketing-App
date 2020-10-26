@@ -35,13 +35,13 @@ function LandingPage() {
           <Container>
             <Row>
               <Col className="ml-auto mr-auto" md="8">
-                <h2 className="title">Let's talk product</h2>
+                <h2 className="title">Doggy Love</h2>
                 <h5 className="description">
-                  This is the paragraph where you can write more details about
-                  your product. Keep you user engaged by providing meaningful
-                  information. Remember that by this time, the user is curious,
-                  otherwise he wouldn't scroll to get here. Add a button if you
-                  want the user to see more.
+                  Our pet shop supplies the biggest selection
+                  of foods and pet toys in all the country. Our
+                  assistants have undertaken special courses in
+                  animal nutrition and training. Ask them anything
+                  you like.
                 </h5>
                 <br />
                 <Button
@@ -61,10 +61,15 @@ function LandingPage() {
                   <div className="icon icon-info">
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Beautiful Gallery</h4>
+                    <h4 className="info-title">Convenient</h4>
                     <p className="description">
-                      Spend your time generating new ideas. You don't have to
-                      think of implementing.
+                      We understand that not every person likes to shop
+                      online. Sometimes it can be difficult to get out to
+                      a shop. Do we think that you should be left trying to
+                      guess what animal food you ought to buy? Certainly not!
+                      We have a dedicated Twitter account, where you can write
+                      to us around the clock. We guarantee an answer within half
+                      an hour.
                     </p>
                     {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
@@ -77,10 +82,11 @@ function LandingPage() {
                   <div className="icon icon-info">
                   </div>
                   <div className="description">
-                    <h4 className="info-title">New Ideas</h4>
+                    <h4 className="info-title">Dog Toys</h4>
                     <p className="description">
-                      Larger, yet dramatically thinner. More powerful, but
-                      remarkably power efficient.
+                      Do you have a high-energy dog, or are they more the shy, retiring type?
+                      Do they needs to chew, or run like the wind? Whatever it is, we'll help
+                      you find it.
                     </p>
                     {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
@@ -93,10 +99,11 @@ function LandingPage() {
                   <div className="icon icon-info">
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Statistics</h4>
+                    <h4 className="info-title">Scratching posts</h4>
                     <p className="description">
-                      Choose from a veriety of many colors resembling sugar
-                      paper pastels.
+                      It's common sense. Cats need scratching posts. Do they
+                      all have to look the same, though? We have all kinds of
+                      scratching posts, for all kinds of homes.
                     </p>
                     {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
@@ -109,10 +116,11 @@ function LandingPage() {
                   <div className="icon icon-info">
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Delightful design</h4>
+                    <h4 className="info-title">Intern programs</h4>
                     <p className="description">
-                      Find unique and handmade delightful designs related items
-                      directly from our sellers.
+                      Doggy Love hires many interns to work on publicity and web development.
+                      Do you have a passion for animals and a drive to learn? Send us your
+                      CV and we'll be sure to get in touch.
                     </p>
                     {/* <Button className="btn-link" color="info" href="#pablo">
                       See more
@@ -145,9 +153,9 @@ function LandingPage() {
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      Teamwork is so important that it is virtually impossible
-                      for you to reach the heights of your capabilities or make
-                      the money that you want without becoming very good at it.
+                      Chad has years of experience as a developer, and deeply
+                      enjoyed working on the website for Puppy Love. He believes
+                      that it is incredibly important to have ethical marketplaces.
                     </p>
                   </CardBody>
 
@@ -167,14 +175,13 @@ function LandingPage() {
                     <a href="/feature">
                       <div className="author">
                         <CardTitle tag="h4">Sophie</CardTitle>
-                        <h6 className="card-category">Your Friend</h6>
+                        <h6 className="card-category">Doggy Love's permanent resident</h6>
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      A group becomes a team when each member is sure enough of
-                      himself and his contribution to praise the skill of the
-                      others. No one can whistle a symphony. It takes an
-                      orchestra to play it.
+                      Sophie keeps the whole team company. Our developers have
+                      complained that she stares too much while they're eating
+                      their lunch, but I guess they'll get used to it!
                     </p>
                   </CardBody>
                 </Card>
@@ -192,15 +199,15 @@ function LandingPage() {
                   <CardBody>
                     <a href="#pablo">
                       <div className="author">
-                        <CardTitle tag="h4">Josephine Ann</CardTitle>
+                        <CardTitle tag="h4">Josephine</CardTitle>
                         <h6 className="card-category">Developer</h6>
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      The strength of the team is each individual member. The
-                      strength of each member is the team. If you can laugh
-                      together, you can work together, silence isn’t golden,
-                      it’s deadly.
+                      Josephine is also a developer who is just breaking
+                      into the world of programming. She has also stated
+                      that she considers ethical marketplaces to be of the
+                      utmost importance.
                     </p>
                   </CardBody>
                   <CardFooter className="text-center">

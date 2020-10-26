@@ -30,8 +30,8 @@ function LandingPageHeader() {
       <div className="filter" />
       <Container>
         <div className="motto text-center">
-          <h1>You can find your friend</h1>
-          <h3>Just one click!</h3>
+          <h1>Puppy Love</h1>
+          <h3>Your new friend is just a click away!</h3>
           <br />
           <Button
             href="/features"
