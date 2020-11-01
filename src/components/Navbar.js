@@ -108,12 +108,13 @@ function ExamplesNavbar(props) {
             <NavItem>
               {
                 props.status ? (
-                  <Button
-                    className="nav-cart-button" variant="contained"
-                    size="small" onClick={props.startLogout}
-                    startIcon={<ExitToAppIcon />}>
-                    Logout
-                  </Button>
+                  <Link to="/">
+                    <Button
+                      className="nav-cart-button" variant="contained"
+                      size="small" onClick={props.startLogout}
+                      startIcon={<ExitToAppIcon />}>
+                      Logout</Button>
+                  </Link>
                 ) : (
                     <Button
                       className="nav-cart-button" variant="contained"
