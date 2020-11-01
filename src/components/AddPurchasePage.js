@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import individualOrders from '../selectors/individualOrders';
+import individualOrders from '../selectors/individualOrdersAre';
 import individualOrderPrices from '../selectors/individualOrderPrices';
 import PurchaseForm from './PurchaseForm';
 import { startAddPurchase } from '../actions/purchases';

@@ -12,7 +12,7 @@ import uuid from 'uuid';
 import CurrencyFormat from "react-currency-format";
 import OrderPageItem from './OrderPageItem';
 import Button from 'react-bootstrap/Button'
-import individualOrders from '../selectors/individualOrders';
+import individualOrders from '../selectors/individualOrdersAre';
 
 export class OrdersPage extends React.Component {
 

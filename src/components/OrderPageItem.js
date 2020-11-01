@@ -9,7 +9,7 @@ import CurrencyFormat from "react-currency-format";
 // import ListItemText from "@material-ui/core/ListItemText";
 // import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 // import Avatar from "@material-ui/core/Avatar";
-import individualOrders from '../selectors/individualOrders';
+import individualOrders from '../selectors/individualOrdersAre';
 import individualOrderPrices from '../selectors/individualOrderPrices';
 import uuid from 'uuid';
 import {
