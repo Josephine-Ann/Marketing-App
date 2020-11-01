@@ -41,7 +41,7 @@ function LandingPage() {
                   of foods and pet toys in all the country. Our
                   assistants have undertaken special courses in
                   animal nutrition and training. Ask them anything
-                  you like.
+                  you like!
                 </h5>
                 <br />
                 <Button
