@@ -23,6 +23,8 @@
     "babel-preset-react": "6.24.1",
     "bootstrap": "^4.5.2",
     "css-loader": "0.28.4",
+    "express": "4.15.4",
+    "extract-text-webpack-plugin": "3.0.0",
     "firebase": "4.2.0",
     "firebase-admin": "^9.2.0",
     "firebase-functions": "^3.11.0",
