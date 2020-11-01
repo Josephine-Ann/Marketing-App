@@ -90,18 +90,21 @@ function ExamplesNavbar(props) {
               <NavLink to="/features" tag={Link}> Features Page
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink to="/orders" tag={Link}> Orders Page
+            {(props.status) &&
+              <NavItem>
+                <NavLink to="/orders" tag={Link}> Orders Page
               </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-cart-link" to="/cart" tag={Link}>
-                <Badge badgeContent={props.status ? props.cartCounter : 0} color="primary">
-                  <ShoppingBasketIcon />
-                </Badge>
-              </NavLink>
-            </NavItem>
-
+              </NavItem>
+            }
+            {(props.status) &&
+              <NavItem>
+                <NavLink className="nav-cart-link" to="/cart" tag={Link}>
+                  <Badge badgeContent={props.cartCounter} color="primary">
+                    <ShoppingBasketIcon />
+                  </Badge>
+                </NavLink>
+              </NavItem>
+            }
             <NavItem>
               {
                 props.status ? (
