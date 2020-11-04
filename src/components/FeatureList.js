@@ -7,7 +7,6 @@ import CardDeck from 'react-bootstrap/CardDeck'
 
 const FeatureList = (props) => (
   <div id="feature-list">
-    <h1>Feature List</h1>
     <CardDeck>
       {props.features.map((feature) => {
         return <FeatureListItem key={feature.id} {...feature} />;

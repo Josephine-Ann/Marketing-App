@@ -16,7 +16,7 @@ export class FeatureListItem extends React.Component {
   render() {
     return (
       <div className="lit">
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem', height: '500px' }}>
           <Card.Img className="feature_card_img" variant="top" src={this.props.url} />
           <Card.Body>
             <Card.Title className="feature_card_title"> {this.props.name}</Card.Title>

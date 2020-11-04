@@ -12,6 +12,13 @@
     position: fixed;
 }
 
+@media all and (max-width: 510px) and (min-width: 260px) {
+  .form-details{
+    max-width: 85%;
+    margin: 10% 0;
+    position: absolute;
+  }
+}
 
 @media all and (max-width: 699px) and (min-width: 520px) {
   .form-details{

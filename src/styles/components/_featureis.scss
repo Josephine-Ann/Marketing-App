@@ -18,6 +18,21 @@
     }
 }
 
+@media all and (max-width: 550px) and (min-width: 260px) {
+    .feature {
+        margin: 0%;
+        margin-top: 50%;
+        .feature_card{
+            .feature_img{
+                height: 50vh !important;
+            }
+            .feature__price{
+                font-weight: 700;
+            }
+        }
+    }
+}
+
 #feature-form {
     color: white;
 }

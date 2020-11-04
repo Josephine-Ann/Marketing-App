@@ -42,7 +42,7 @@ export class CartPageItem extends React.Component {
                 <Typography
                   component="span"
                   variant="body2"
-                  className="inline"
+                  className="inline inline_mobile"
                   color="textPrimary">
                   {this.state.description}
                 </Typography>
@@ -54,7 +54,7 @@ export class CartPageItem extends React.Component {
                   value={this.state.amount / 100}
                   displayType={"text"}
                   thousandSeparator={true}
-                  suffix={" €"}
+                  suffix={"€"}
                 />
               </React.Fragment>
             }

@@ -16,7 +16,7 @@ const FeaturePage = (props) => {
             <p className="feature__p">{props.feature.description}</p>
             <CurrencyFormat
               renderText={(value) => (
-                <span className="feature__p">{value}</span>
+                <span className="feature__p feature__price ">{value}</span>
               )}
               decimalScale={2}
               value={props.feature.amount / 100}

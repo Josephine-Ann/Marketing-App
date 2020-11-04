@@ -1,13 +1,13 @@
-    #triangle-bottomleft {
-        clip-path: polygon(0 72%, 100% 27%, 100% 100%, 0 100%);
-        background-color: red;
-        width: 100%;
-        height: 1000px;
-        z-index: -1;
-      }
+#triangle-bottomleft {
+  clip-path: polygon(0 72%, 100% 27%, 100% 100%, 0 100%);
+  background-color: red;
+  width: 100%;
+  height: 1000px;
+  z-index: -1;
+}
 
-      #under-triangle {
-          background-color: red;
-          height: 8000px;
-        }
+#under-triangle {
+  background-color: red;
+  height: 8000px;
+}
     

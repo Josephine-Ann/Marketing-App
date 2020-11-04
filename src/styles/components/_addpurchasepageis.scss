@@ -44,6 +44,18 @@
   }
 }
 
+@media all and (max-width: 510px) and (min-width: 260px) {
+  .add-purchase-area {
+    flex-direction: column;
+    margin: 20% 5% 0 10%;
+  }
+
+  .card-purchase{
+    margin-top: 10%;
+    margin-left: 0%;
+    max-width: 0% !important;
+  }
+}
 
 @media all and (max-width: 699px) and (min-width: 520px) {
   .add-purchase-area {

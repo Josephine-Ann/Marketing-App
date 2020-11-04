@@ -1,5 +1,11 @@
 #feature-list {
-    margin: auto 10%;
+    padding-left: 10%;
     text-align: center;
-    align-items: center;
+    padding-top: 2%;
+}
+
+@media all and (max-width: 550px) and (min-width: 260px) {
+    #feature-list {
+        padding-left: 10%;
+    }
 }
