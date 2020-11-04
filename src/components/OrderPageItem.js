@@ -56,6 +56,7 @@ export class OrderPageItem extends React.Component {
                         <Avatar alt="Remy Sharp" src={order.url} />
                       </ListItemAvatar>
                       <ListItemText
+                        className="card_list_mobile"
                         primary={order.name}
                         secondary={
                           <React.Fragment>
@@ -66,7 +67,9 @@ export class OrderPageItem extends React.Component {
                               color="textPrimary">
                               {order.name + " "}
                             </Typography>
-                            &nbsp;&nbsp;&nbsp;&nbsp; {order.description}
+                            <div className="card_list_desc">
+                              {order.description}
+                            </div>
                           </React.Fragment>
                         }
                       />
@@ -88,7 +91,7 @@ export class OrderPageItem extends React.Component {
           thousandSeparator={true}
           suffix={" €"}
         />
-        <Divider variant="inset" />
+        <Divider className="accordion_divider" variant="inset" />
       </div>
     )
   }

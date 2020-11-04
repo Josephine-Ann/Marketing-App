@@ -12,6 +12,27 @@
       margin-left: 0% !important;
     }
   }
+
+  .card_list_desc{
+    text-indent: 50px;
+  }
+
+  .accordion_divider{
+    color: wheat;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+}
+@media all and (max-width: 550px) and (min-width: 260px) {
+  .accordion{
+    .card_list_mobile{
+      display: flex;
+      flex-direction: column;
+      .card_list_desc{
+        text-indent: 0px;
+      }
+    }
+  }
 }
 
 .order__page__price{
