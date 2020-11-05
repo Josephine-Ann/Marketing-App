@@ -83,23 +83,39 @@ function ExamplesNavbar(props) {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to="/" tag={Link}> Home
+              <NavLink to="/" aria-expanded={navbarCollapse}
+                className={classnames("navbar-toggler navbar-toggler", {
+                  toggled: navbarCollapse,
+                })}
+                onClick={toggleNavbarCollapse} tag={Link}> Home
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/features" tag={Link}> Features Page
+              <NavLink to="/features" aria-expanded={navbarCollapse}
+                className={classnames("navbar-toggler navbar-toggler", {
+                  toggled: navbarCollapse,
+                })}
+                onClick={toggleNavbarCollapse} tag={Link}> Features Page
               </NavLink>
             </NavItem>
             {(props.status) &&
               <NavItem>
-                <NavLink to="/orders" tag={Link}> Orders Page
+                <NavLink to="/orders" aria-expanded={navbarCollapse}
+                  className={classnames("navbar-toggler navbar-toggler", {
+                    toggled: navbarCollapse,
+                  })}
+                  onClick={toggleNavbarCollapse} tag={Link}> Orders Page
               </NavLink>
               </NavItem>
             }
             {(props.status) &&
               <NavItem>
                 <NavLink className="nav-cart-link" to="/cart" tag={Link}>
-                  <Badge badgeContent={props.cartCounter} color="primary">
+                  <Badge badgeContent={props.cartCounter} aria-expanded={navbarCollapse}
+                    className={classnames("navbar-toggler navbar-toggler", {
+                      toggled: navbarCollapse,
+                    })}
+                    onClick={toggleNavbarCollapse} color="primary">
                     <ShoppingBasketIcon />
                   </Badge>
                 </NavLink>
