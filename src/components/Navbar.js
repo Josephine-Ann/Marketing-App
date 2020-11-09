@@ -83,40 +83,24 @@ function ExamplesNavbar(props) {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to="/" aria-expanded={navbarCollapse}
-                className={classnames("navbar-toggler navbar-toggler", {
-                  toggled: navbarCollapse,
-                })}
-                onClick={toggleNavbarCollapse} tag={Link}> Home
+              <NavLink to="/" tag={Link} onClick={toggleNavbarCollapse}> Home
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/features" aria-expanded={navbarCollapse}
-                className={classnames("navbar-toggler navbar-toggler", {
-                  toggled: navbarCollapse,
-                })}
-                onClick={toggleNavbarCollapse} tag={Link}> Features Page
+              <NavLink to="/features" tag={Link} onClick={toggleNavbarCollapse}> Features Page
               </NavLink>
             </NavItem>
             {(props.status) &&
               <NavItem>
-                <NavLink to="/orders" aria-expanded={navbarCollapse}
-                  className={classnames("navbar-toggler navbar-toggler", {
-                    toggled: navbarCollapse,
-                  })}
-                  onClick={toggleNavbarCollapse} tag={Link}> Orders Page
+                <NavLink to="/orders" tag={Link} onClick={toggleNavbarCollapse}> Orders Page
               </NavLink>
               </NavItem>
             }
             {(props.status) &&
               <NavItem>
                 <NavLink className="nav-cart-link" to="/cart" tag={Link}>
-                  <Badge badgeContent={props.cartCounter} aria-expanded={navbarCollapse}
-                    className={classnames("navbar-toggler navbar-toggler", {
-                      toggled: navbarCollapse,
-                    })}
-                    onClick={toggleNavbarCollapse} color="primary">
-                    <ShoppingBasketIcon />
+                  <Badge badgeContent={props.cartCounter} color="primary">
+                    <ShoppingBasketIcon onClick={toggleNavbarCollapse} />
                   </Badge>
                 </NavLink>
               </NavItem>
@@ -129,7 +113,7 @@ function ExamplesNavbar(props) {
                       className="nav-cart-button" variant="contained"
                       size="small" onClick={props.startLogout}
                       startIcon={<ExitToAppIcon />}>
-                      Logout</Button>
+                      Log out</Button>
                   </Link>
                 ) : (
                     <Button
